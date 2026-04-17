@@ -19,7 +19,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://orbitacollective.com"),
   title: {
-    default: "Orbita Collective | Customer Experience & Service Design Consultancy",
+    default: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
     template: "%s | Orbita Collective",
   },
   description:
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://orbitacollective.com",
     siteName: "Orbita Collective",
-    title: "Orbita Collective | Customer Experience & Service Design Consultancy",
+    title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
     description:
       "CX and service design consultancy with 18+ years of experience. Inspiring, impactful, and affordable — without the traditional consultancy premium.",
     images: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Orbita Collective | CX & Service Design Consultancy",
+    title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
     description:
       "18+ years of CX, service design and design thinking. Inspiring, impactful and affordable — without the consultancy premium.",
     images: ["/og-image.png"],
