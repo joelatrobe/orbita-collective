@@ -34,8 +34,10 @@ export default function Navigation() {
         animate={{ opacity: 1, transform: "translateY(0px)" }}
         transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
         className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-full px-6 py-2.5 ${
-          scrolled ? "bg-dark/95 backdrop-blur-md shadow-lg" : "bg-cream/80 backdrop-blur-sm shadow-sm"
-        } ${visible ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}`}
+          scrolled
+            ? "bg-dark/95 backdrop-blur-md shadow-lg"
+            : "bg-cream/80 backdrop-blur-sm shadow-sm md:bg-transparent md:backdrop-blur-none md:shadow-none"
+        }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center cursor-pointer">

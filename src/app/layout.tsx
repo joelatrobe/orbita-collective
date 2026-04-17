@@ -35,6 +35,8 @@ export const metadata: Metadata = {
     "customer experience strategy",
     "service design agency London",
     "design consultancy London",
+    "CX consultancy Italy",
+    "service design Italy",
     "UX consultancy",
     "customer journey mapping",
     "design thinking agency",
@@ -134,10 +136,10 @@ const structuredData = {
       description:
         "CX strategy, service design, user research, and design thinking consultancy.",
       priceRange: "££",
-      areaServed: {
-        "@type": "Country",
-        name: "United Kingdom",
-      },
+      areaServed: [
+        { "@type": "City", name: "London", containedInPlace: { "@type": "Country", name: "United Kingdom" } },
+        { "@type": "Country", name: "Italy" },
+      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Consultancy Services",
