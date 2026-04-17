@@ -297,7 +297,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
           className="mt-8 text-lg md:text-xl text-muted max-w-2xl mx-auto font-light leading-relaxed"
         >
-          Design, innovation, and customer experience consultancy.
+          Service design, CX strategy &amp; innovation consultancy — London &amp; Italy.
           <br className="hidden sm:block" />
           Usable tools your teams can own from day one.
         </motion.p>
