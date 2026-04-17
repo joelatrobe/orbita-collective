@@ -33,13 +33,13 @@ export default function Navigation() {
         initial={{ opacity: 0, transform: "translateY(-15px)" }}
         animate={{ opacity: 1, transform: "translateY(0px)" }}
         transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-6 py-2.5 whitespace-nowrap ${
+        className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-full px-6 py-2.5 ${
           scrolled
             ? "bg-dark/95 backdrop-blur-md shadow-lg"
             : "bg-cream/80 backdrop-blur-sm shadow-sm md:bg-transparent md:backdrop-blur-none md:shadow-none"
         }`}
       >
-        <div className="flex items-center gap-10">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center cursor-pointer">
             <img
               src={scrolled ? "/logos/logo-light.png" : "/logos/logo-dark.png"}
