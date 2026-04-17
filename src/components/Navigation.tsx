@@ -39,13 +39,21 @@ export default function Navigation() {
             : "bg-cream/80 backdrop-blur-sm shadow-sm md:bg-transparent md:backdrop-blur-none md:shadow-none"
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           <a href="#" className="flex items-center cursor-pointer">
-            <img
-              src={scrolled ? "/logos/logo-light.png" : "/logos/logo-dark.png"}
-              alt="Orbita Collective"
-              className="h-7 w-auto object-contain transition-opacity duration-300"
-            />
+            {/* Both logos always mounted — crossfade on scroll */}
+            <div className="relative h-7">
+              <img
+                src="/logos/logo-dark.png"
+                alt="Orbita Collective"
+                className={`h-7 w-auto object-contain absolute top-0 left-0 transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
+              />
+              <img
+                src="/logos/logo-light.png"
+                alt=""
+                className={`h-7 w-auto object-contain transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}
+              />
+            </div>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
