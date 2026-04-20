@@ -41,12 +41,12 @@ export default function CourtDetailPage({ params }: { params: Promise<{ id: stri
       >
         <div
           className="padelr-pill"
-          style={{ background: "rgba(11,31,42,0.7)", color: "white" }}
+          style={{ background: "rgba(20,74,130,0.75)", color: "white" }}
         >
           <span aria-hidden>★</span>
           <span>{court.rating.toFixed(1)}</span>
         </div>
-        <div className="ml-auto padelr-pill" style={{ background: "rgba(11,31,42,0.7)", color: "white" }}>
+        <div className="ml-auto padelr-pill" style={{ background: "rgba(20,74,130,0.75)", color: "white" }}>
           £{court.pricePerHour}/hr
         </div>
       </div>

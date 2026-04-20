@@ -1,12 +1,22 @@
 .padelr-scope {
-  --padelr-navy: #0b1f2a;
-  --padelr-navy-2: #0f2b3a;
-  --padelr-lime: #d4ff3d;
-  --padelr-lime-2: #b9f227;
-  --padelr-ink: #ecf4f1;
-  --padelr-muted: #7d93a0;
-  --padelr-line: rgba(255, 255, 255, 0.08);
-  background: var(--padelr-navy);
+  --padelr-court: #1f6fb8;
+  --padelr-court-deep: #1a5b99;
+  --padelr-court-dark: #144a82;
+  --padelr-line: #ffffff;
+  --padelr-line-soft: rgba(255, 255, 255, 0.35);
+  --padelr-line-hair: rgba(255, 255, 255, 0.16);
+  --padelr-ink: #ffffff;
+  --padelr-ink-soft: rgba(255, 255, 255, 0.72);
+  --padelr-ink-muted: rgba(255, 255, 255, 0.55);
+  /* Legacy aliases so older refs keep working */
+  --padelr-navy: var(--padelr-court);
+  --padelr-navy-2: var(--padelr-court-deep);
+  --padelr-lime: var(--padelr-line);
+  --padelr-lime-2: #f3f6fb;
+  --padelr-muted: var(--padelr-ink-muted);
+  background:
+    radial-gradient(ellipse at top, #2f86cf 0%, transparent 55%),
+    var(--padelr-court);
   color: var(--padelr-ink);
   font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   min-height: 100vh;
@@ -18,9 +28,20 @@
 }
 
 .padelr-card {
-  background: var(--padelr-navy-2);
-  border: 1px solid var(--padelr-line);
+  background: var(--padelr-court-deep);
+  border: 1px solid var(--padelr-line-hair);
   border-radius: 20px;
+  position: relative;
+}
+
+.padelr-card--lined::before {
+  content: "";
+  position: absolute;
+  inset: 10px 10px auto 10px;
+  height: 1px;
+  background: var(--padelr-line-soft);
+  border-radius: 1px;
+  pointer-events: none;
 }
 
 .padelr-pill {
@@ -34,8 +55,8 @@
 }
 
 .padelr-btn-primary {
-  background: var(--padelr-lime);
-  color: var(--padelr-navy);
+  background: var(--padelr-line);
+  color: var(--padelr-court-dark);
   font-weight: 600;
   border-radius: 999px;
   padding: 12px 22px;
@@ -49,7 +70,7 @@
 }
 
 .padelr-btn-ghost {
-  border: 1px solid var(--padelr-line);
+  border: 1px solid var(--padelr-line-soft);
   color: var(--padelr-ink);
   border-radius: 999px;
   padding: 12px 22px;
@@ -58,21 +79,25 @@
   transition: background 160ms ease;
 }
 .padelr-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .padelr-input {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--padelr-line);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--padelr-line-hair);
   border-radius: 14px;
   padding: 12px 16px;
   color: var(--padelr-ink);
   width: 100%;
   outline: none;
-  transition: border-color 160ms ease;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+.padelr-input::placeholder {
+  color: var(--padelr-ink-muted);
 }
 .padelr-input:focus {
-  border-color: var(--padelr-lime);
+  border-color: var(--padelr-line);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .padelr-heading {
@@ -81,19 +106,19 @@
 }
 
 .padelr-slot {
-  border: 1px solid var(--padelr-line);
+  border: 1px solid var(--padelr-line-hair);
   border-radius: 10px;
   padding: 8px 10px;
   font-size: 13px;
   font-weight: 500;
   text-align: center;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--padelr-ink);
   transition: all 140ms ease;
 }
 .padelr-slot:hover:not(:disabled) {
-  border-color: var(--padelr-lime);
-  color: var(--padelr-lime);
+  border-color: var(--padelr-line);
+  background: rgba(255, 255, 255, 0.12);
 }
 .padelr-slot[data-state="booked"] {
   opacity: 0.4;
@@ -101,9 +126,9 @@
   cursor: not-allowed;
 }
 .padelr-slot[data-state="selected"] {
-  background: var(--padelr-lime);
-  color: var(--padelr-navy);
-  border-color: var(--padelr-lime);
+  background: var(--padelr-line);
+  color: var(--padelr-court-dark);
+  border-color: var(--padelr-line);
 }
 
 .padelr-toggle {
@@ -111,14 +136,14 @@
   width: 42px;
   height: 24px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   transition: background 160ms ease;
   cursor: pointer;
   border: none;
   padding: 0;
 }
 .padelr-toggle[data-on="true"] {
-  background: var(--padelr-lime);
+  background: var(--padelr-line);
 }
 .padelr-toggle::after {
   content: "";
@@ -130,8 +155,46 @@
   border-radius: 50%;
   background: white;
   transition: transform 160ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .padelr-toggle[data-on="true"]::after {
   transform: translateX(18px);
-  background: var(--padelr-navy);
+  background: var(--padelr-court);
+}
+
+/* Court-line motif used on hero cards and section headers */
+.padelr-court-lines {
+  position: relative;
+}
+.padelr-court-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0,
+    transparent 8%,
+    var(--padelr-line) 8%,
+    var(--padelr-line) 92%,
+    transparent 92%
+  );
+  opacity: 0.6;
+}
+
+/* The "net" motif: dashed white line for a padel net feel */
+.padelr-net {
+  background-image: linear-gradient(
+    to right,
+    var(--padelr-line) 0,
+    var(--padelr-line) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  background-size: 12px 2px;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 2px;
 }

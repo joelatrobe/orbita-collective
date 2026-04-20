@@ -15,11 +15,22 @@ import type { Booking, Court, Slot } from "../data/types";
 
 type Mode = "player" | "club" | null;
 
+export type CreateBookingInput = {
+  courtId: string;
+  date: "today" | "tomorrow";
+  time: string;
+  players: 2 | 4;
+  partySize: number;
+  openToJoin: boolean;
+  totalPrice: number;
+};
+
 type StoreShape = {
   mode: Mode;
   setMode: (mode: Mode) => void;
   activeClubId: string;
   setActiveClubId: (id: string) => void;
+  currentPlayer: string;
   courts: Court[];
   bookings: Booking[];
   clubs: typeof seedClubs;
@@ -32,14 +43,10 @@ type StoreShape = {
     clubId: string,
     patch: Partial<Court["equipment"]>,
   ) => void;
-  createBooking: (input: {
-    courtId: string;
-    date: "today" | "tomorrow";
-    time: string;
-    players: 2 | 4;
-    totalPrice: number;
-  }) => Booking;
+  createBooking: (input: CreateBookingInput) => Booking;
   cancelBooking: (id: string) => void;
+  joinBooking: (id: string) => void;
+  leaveBooking: (id: string) => void;
 };
 
 const Ctx = createContext<StoreShape | null>(null);
@@ -59,11 +66,16 @@ const markSlot = (
     s.time === time ? { ...s, booked, bookingRef: booked ? ref : undefined } : s,
   );
 
+export function spotsLeft(b: Booking): number {
+  return Math.max(0, b.players - b.partySize - b.joiners.length);
+}
+
 export function PadelrProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<Mode>(null);
   const [activeClubId, setActiveClubId] = useState<string>(seedClubs[0].id);
   const [courts, setCourts] = useState<Court[]>(seedCourts);
   const [bookings, setBookings] = useState<Booking[]>(seedBookings);
+  const currentPlayer = "You";
 
   const updateCourt = useCallback((id: string, patch: Partial<Court>) => {
     setCourts((prev) => prev.map((c) => (c.id === id ? { ...c, ...patch } : c)));
@@ -104,9 +116,12 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
       date: input.date,
       time: input.time,
       players: input.players,
+      partySize: Math.min(input.partySize, input.players),
+      openToJoin: input.openToJoin && input.partySize < input.players,
+      joiners: [],
       totalPrice: input.totalPrice,
       status: "confirmed",
-      playerName: "You",
+      playerName: currentPlayer,
       createdAt: new Date().toISOString(),
     };
     setBookings((prev) => [booking, ...prev]);
@@ -131,31 +146,70 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
     return booking;
   }, []);
 
-  const cancelBooking = useCallback(
-    (id: string) => {
-      setBookings((prev) => {
-        const target = prev.find((b) => b.id === id);
-        if (target) {
-          setCourts((cPrev) =>
-            cPrev.map((c) =>
-              c.id === target.courtId
-                ? {
-                    ...c,
-                    slots: {
-                      ...c.slots,
-                      [target.date]: markSlot(c.slots[target.date], target.time, false),
-                    },
-                  }
-                : c,
-            ),
-          );
-        }
-        return prev.map((b) =>
-          b.id === id ? { ...b, status: "cancelled" as const } : b,
+  const cancelBooking = useCallback((id: string) => {
+    setBookings((prev) => {
+      const target = prev.find((b) => b.id === id);
+      if (target) {
+        setCourts((cPrev) =>
+          cPrev.map((c) =>
+            c.id === target.courtId
+              ? {
+                  ...c,
+                  slots: {
+                    ...c.slots,
+                    [target.date]: markSlot(c.slots[target.date], target.time, false),
+                  },
+                }
+              : c,
+          ),
         );
-      });
+      }
+      return prev.map((b) =>
+        b.id === id ? { ...b, status: "cancelled" as const, openToJoin: false } : b,
+      );
+    });
+  }, []);
+
+  const joinBooking = useCallback(
+    (id: string) => {
+      setBookings((prev) =>
+        prev.map((b) => {
+          if (b.id !== id) return b;
+          if (!b.openToJoin) return b;
+          if (b.joiners.some((j) => j.name === currentPlayer)) return b;
+          if (spotsLeft(b) <= 0) return b;
+          const nextJoiners = [
+            ...b.joiners,
+            { name: currentPlayer, joinedAt: new Date().toISOString() },
+          ];
+          const full = b.players - b.partySize - nextJoiners.length <= 0;
+          return {
+            ...b,
+            joiners: nextJoiners,
+            openToJoin: !full,
+          };
+        }),
+      );
     },
-    [],
+    [currentPlayer],
+  );
+
+  const leaveBooking = useCallback(
+    (id: string) => {
+      setBookings((prev) =>
+        prev.map((b) => {
+          if (b.id !== id) return b;
+          const nextJoiners = b.joiners.filter((j) => j.name !== currentPlayer);
+          if (nextJoiners.length === b.joiners.length) return b;
+          return {
+            ...b,
+            joiners: nextJoiners,
+            openToJoin: b.status === "confirmed" ? true : b.openToJoin,
+          };
+        }),
+      );
+    },
+    [currentPlayer],
   );
 
   const value = useMemo<StoreShape>(
@@ -164,6 +218,7 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
       setMode,
       activeClubId,
       setActiveClubId,
+      currentPlayer,
       courts,
       bookings,
       clubs: seedClubs,
@@ -172,6 +227,8 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
       updateClubEquipment,
       createBooking,
       cancelBooking,
+      joinBooking,
+      leaveBooking,
     }),
     [
       mode,
@@ -183,6 +240,8 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
       updateClubEquipment,
       createBooking,
       cancelBooking,
+      joinBooking,
+      leaveBooking,
     ],
   );
 

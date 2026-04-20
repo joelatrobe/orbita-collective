@@ -32,6 +32,11 @@ export type Club = {
   city: string;
 };
 
+export type Joiner = {
+  name: string;
+  joinedAt: string;
+};
+
 export type Booking = {
   id: string;
   reference: string;
@@ -39,6 +44,9 @@ export type Booking = {
   date: "today" | "tomorrow";
   time: string;
   players: 2 | 4;
+  partySize: number;
+  openToJoin: boolean;
+  joiners: Joiner[];
   totalPrice: number;
   status: "confirmed" | "cancelled";
   playerName: string;

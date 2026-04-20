@@ -95,11 +95,11 @@ export default function CalendarPage() {
                         className="rounded-lg p-3 text-xs"
                         style={{
                           background: slot.booked
-                            ? "rgba(212,255,61,0.12)"
+                            ? "rgba(255,255,255,0.14)"
                             : "rgba(255,255,255,0.03)",
                           color: slot.booked ? "var(--padelr-lime)" : "var(--padelr-muted)",
                           border: slot.booked
-                            ? "1px solid rgba(212,255,61,0.4)"
+                            ? "1px solid rgba(255,255,255,0.45)"
                             : "1px dashed var(--padelr-line)",
                         }}
                       >

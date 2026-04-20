@@ -108,7 +108,7 @@ export default function EquipmentPage() {
           Apply to all courts
         </button>
         {saved ? (
-          <span className="padelr-pill" style={{ background: "rgba(212,255,61,0.15)", color: "var(--padelr-lime)" }}>
+          <span className="padelr-pill" style={{ background: "rgba(255,255,255,0.18)", color: "var(--padelr-lime)" }}>
             Live on player view ✓
           </span>
         ) : null}

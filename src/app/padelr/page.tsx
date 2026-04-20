@@ -18,7 +18,7 @@ export default function PadelrHome() {
       <div className="mb-10">
         <div
           className="padelr-pill mb-6"
-          style={{ background: "rgba(212,255,61,0.12)", color: "var(--padelr-lime)" }}
+          style={{ background: "rgba(255,255,255,0.14)", color: "var(--padelr-lime)" }}
         >
           MVP · Mock data
         </div>

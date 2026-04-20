@@ -9,7 +9,7 @@ export function EquipmentBadges({ equipment }: { equipment: Equipment }) {
       <span
         className="padelr-pill"
         style={{
-          background: rackets ? "rgba(212,255,61,0.12)" : "rgba(255,255,255,0.05)",
+          background: rackets ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.05)",
           color: rackets ? "var(--padelr-lime)" : "var(--padelr-muted)",
         }}
       >
@@ -19,7 +19,7 @@ export function EquipmentBadges({ equipment }: { equipment: Equipment }) {
       <span
         className="padelr-pill"
         style={{
-          background: balls ? "rgba(212,255,61,0.12)" : "rgba(255,255,255,0.05)",
+          background: balls ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.05)",
           color: balls ? "var(--padelr-lime)" : "var(--padelr-muted)",
         }}
       >

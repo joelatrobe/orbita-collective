@@ -13,7 +13,7 @@ export function TopBar({ title }: { title?: string }) {
   return (
     <header
       className="sticky top-0 z-40 border-b"
-      style={{ borderColor: "var(--padelr-line)", background: "rgba(11,31,42,0.85)", backdropFilter: "blur(12px)" }}
+      style={{ borderColor: "var(--padelr-line)", background: "rgba(26,91,153,0.82)", backdropFilter: "blur(12px)" }}
     >
       <div className="mx-auto max-w-6xl flex items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Link href="/padelr" className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export function TopBar({ title }: { title?: string }) {
 
           <div
             className="padelr-pill"
-            style={{ background: "rgba(212,255,61,0.12)", color: "var(--padelr-lime)" }}
+            style={{ background: "rgba(255,255,255,0.14)", color: "var(--padelr-lime)" }}
           >
             {mode === "club" ? "Club mode" : mode === "player" ? "Player mode" : "Guest"}
           </div>

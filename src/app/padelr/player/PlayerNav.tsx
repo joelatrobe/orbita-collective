@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { href: "/padelr/player", label: "Discover" },
+  { href: "/padelr/player/games", label: "Games" },
   { href: "/padelr/player/bookings", label: "Bookings" },
 ];
 
@@ -13,7 +14,7 @@ export function PlayerNav() {
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-40 border-t md:hidden"
-      style={{ background: "rgba(11,31,42,0.92)", borderColor: "var(--padelr-line)", backdropFilter: "blur(12px)" }}
+      style={{ background: "rgba(20,74,130,0.9)", borderColor: "var(--padelr-line)", backdropFilter: "blur(12px)" }}
     >
       <div className="mx-auto flex max-w-md items-center justify-around px-4 py-3">
         {items.map((i) => {
