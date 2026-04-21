@@ -9,6 +9,14 @@ export type Equipment = {
   balls: { available: boolean; buyPrice: number };
 };
 
+export type CourtScene =
+  | "rooftop-dusk"
+  | "rooftop-night"
+  | "indoor-bright"
+  | "sunlit-day"
+  | "morning-glass"
+  | "golden-hour";
+
 export type Court = {
   id: string;
   name: string;
@@ -20,9 +28,10 @@ export type Court = {
   rating: number;
   equipment: Equipment;
   openingHours: { open: string; close: string };
-  slots: { today: Slot[]; tomorrow: Slot[] };
+  slots: Record<string, Slot[]>;
   clubOwnerId: string;
-  photoGradient: string;
+  scene: CourtScene;
+  photoUrl?: string;
 };
 
 export type Club = {
@@ -41,7 +50,7 @@ export type Booking = {
   id: string;
   reference: string;
   courtId: string;
-  date: "today" | "tomorrow";
+  date: string; // "today" | "tomorrow" | YYYY-MM-DD
   time: string;
   players: 2 | 4;
   partySize: number;

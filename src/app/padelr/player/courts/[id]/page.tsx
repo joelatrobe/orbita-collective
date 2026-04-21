@@ -2,16 +2,21 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { use, useState } from "react";
+import { use, useMemo, useState } from "react";
 import { EquipmentBadges } from "../../../components/EquipmentBadges";
+import { PadelCourtArt } from "../../../components/PadelCourtArt";
+import { DatePicker } from "../../../components/DatePicker";
+import { getSlotsFor } from "../../../data/dates";
 import { usePadelr } from "../../../store/PadelrStore";
 
 export default function CourtDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const { courts } = usePadelr();
   const court = courts.find((c) => c.id === id);
-  const [activeDay, setActiveDay] = useState<"today" | "tomorrow">("today");
+  const [activeDay, setActiveDay] = useState<string>("today");
   const router = useRouter();
+
+  const slots = useMemo(() => (court ? getSlotsFor(court, activeDay) : []), [court, activeDay]);
 
   if (!court) {
     return (
@@ -24,54 +29,64 @@ export default function CourtDetailPage({ params }: { params: Promise<{ id: stri
     );
   }
 
-  const slots = court.slots[activeDay];
-
   return (
     <div>
       <Link
         href="/padelr/player"
         className="mb-4 inline-flex items-center gap-1 text-sm"
-        style={{ color: "var(--padelr-muted)" }}
+        style={{ color: "var(--padelr-ink-soft)" }}
       >
         ← Discover
       </Link>
 
-      <div
-        className={`bg-gradient-to-br ${court.photoGradient} relative mb-4 flex h-56 items-end overflow-hidden rounded-2xl p-5 md:h-72`}
-      >
-        <div
-          className="padelr-pill"
-          style={{ background: "rgba(20,74,130,0.75)", color: "white" }}
-        >
-          <span aria-hidden>★</span>
-          <span>{court.rating.toFixed(1)}</span>
+      <div className="relative mb-6 h-60 overflow-hidden rounded-2xl md:h-80">
+        <PadelCourtArt
+          scene={court.scene}
+          photoUrl={court.photoUrl}
+          className="absolute inset-0 h-full w-full"
+          ariaLabel={`${court.name}`}
+        />
+        <div className="absolute inset-x-4 top-4 flex items-center justify-between">
+          <div
+            className="padelr-pill"
+            style={{ background: "rgba(20,74,130,0.82)", color: "white" }}
+          >
+            <span aria-hidden>★</span>
+            <span>{court.rating.toFixed(1)}</span>
+          </div>
+          <div
+            className="padelr-pill"
+            style={{ background: "rgba(20,74,130,0.82)", color: "white" }}
+          >
+            £{court.pricePerHour}/hr
+          </div>
         </div>
-        <div className="ml-auto padelr-pill" style={{ background: "rgba(20,74,130,0.75)", color: "white" }}>
-          £{court.pricePerHour}/hr
+        <div className="absolute inset-x-4 bottom-3">
+          <div className="padelr-baseline" aria-hidden />
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-[1fr_320px]">
+      <div className="grid gap-8 md:grid-cols-[1fr_320px]">
         <div>
           <h1 className="padelr-heading text-3xl md:text-4xl">{court.name}</h1>
-          <p className="mt-1 text-sm" style={{ color: "var(--padelr-muted)" }}>
+          <p className="mt-1 text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
             {court.address} · {court.city}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="padelr-pill" style={{ background: "rgba(255,255,255,0.05)", color: "var(--padelr-ink)" }}>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <span className="padelr-pill" style={{ background: "rgba(255,255,255,0.08)" }}>
               Open {court.openingHours.open}–{court.openingHours.close}
             </span>
           </div>
 
-          <div className="mt-6">
-            <h2 className="padelr-heading text-sm uppercase tracking-widest" style={{ color: "var(--padelr-muted)" }}>
-              Gear on site
-            </h2>
-            <div className="mt-3">
-              <EquipmentBadges equipment={court.equipment} />
+          <section className="mt-8">
+            <div className="padelr-section-head">
+              <h2 className="padelr-heading text-sm uppercase tracking-widest">
+                Gear on site
+              </h2>
             </div>
-            <ul className="mt-3 text-sm" style={{ color: "var(--padelr-muted)" }}>
+            <EquipmentBadges equipment={court.equipment} />
+            <ul className="mt-3 text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
               <li>
                 {court.equipment.rackets.available
                   ? `Rackets to hire · £${court.equipment.rackets.hirePrice}/session`
@@ -83,33 +98,16 @@ export default function CourtDetailPage({ params }: { params: Promise<{ id: stri
                   : "No balls on sale"}
               </li>
             </ul>
-          </div>
+          </section>
 
-          <div className="mt-7">
-            <div className="flex items-center justify-between">
-              <h2 className="padelr-heading text-sm uppercase tracking-widest" style={{ color: "var(--padelr-muted)" }}>
+          <section className="mt-8">
+            <div className="padelr-section-head">
+              <h2 className="padelr-heading text-sm uppercase tracking-widest">
                 Available slots
               </h2>
-              <div className="flex gap-2">
-                {(["today", "tomorrow"] as const).map((d) => (
-                  <button
-                    key={d}
-                    onClick={() => setActiveDay(d)}
-                    className="padelr-pill"
-                    style={{
-                      background: activeDay === d ? "var(--padelr-lime)" : "rgba(255,255,255,0.05)",
-                      color: activeDay === d ? "var(--padelr-navy)" : "var(--padelr-ink)",
-                      fontWeight: activeDay === d ? 600 : 500,
-                      textTransform: "capitalize",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {d}
-                  </button>
-                ))}
-              </div>
             </div>
-            <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-6">
+            <DatePicker value={activeDay} onChange={setActiveDay} />
+            <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-6">
               {slots.map((s) => (
                 <button
                   key={s.time}
@@ -118,7 +116,7 @@ export default function CourtDetailPage({ params }: { params: Promise<{ id: stri
                   disabled={s.booked}
                   onClick={() =>
                     router.push(
-                      `/padelr/player/book/${court.id}?day=${activeDay}&time=${encodeURIComponent(s.time)}`,
+                      `/padelr/player/book/${court.id}?day=${encodeURIComponent(activeDay)}&time=${encodeURIComponent(s.time)}`,
                     )
                   }
                 >
@@ -126,24 +124,25 @@ export default function CourtDetailPage({ params }: { params: Promise<{ id: stri
                 </button>
               ))}
             </div>
-          </div>
+          </section>
         </div>
 
-        <aside className="padelr-card h-fit p-5">
-          <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-muted)" }}>
+        <aside className="padelr-card padelr-lined-top h-fit p-5">
+          <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-ink-soft)" }}>
             From
           </div>
           <div className="mt-1 text-3xl font-bold">£{court.pricePerHour}</div>
-          <div className="text-xs" style={{ color: "var(--padelr-muted)" }}>
+          <div className="text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
             per hour · up to 4 players
           </div>
+          <div className="padelr-net mt-4" aria-hidden />
           <Link
-            href={`/padelr/player/book/${court.id}?day=${activeDay}`}
-            className="padelr-btn-primary mt-5 block w-full text-center"
+            href={`/padelr/player/book/${court.id}?day=${encodeURIComponent(activeDay)}`}
+            className="padelr-btn-primary mt-4 block w-full text-center"
           >
             Book now
           </Link>
-          <p className="mt-3 text-center text-xs" style={{ color: "var(--padelr-muted)" }}>
+          <p className="mt-3 text-center text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
             Free cancellation up to 2 hours before.
           </p>
         </aside>

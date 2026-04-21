@@ -2,10 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { usePadelr } from "../../store/PadelrStore";
+import { DatePicker } from "../../components/DatePicker";
+import { getSlotsFor } from "../../data/dates";
 
 export default function CalendarPage() {
   const { courts, activeClubId } = usePadelr();
-  const [day, setDay] = useState<"today" | "tomorrow">("today");
+  const [day, setDay] = useState<string>("today");
   const clubCourts = useMemo(
     () => courts.filter((c) => c.clubOwnerId === activeClubId),
     [courts, activeClubId],
@@ -13,7 +15,7 @@ export default function CalendarPage() {
 
   const hours = useMemo(() => {
     const set = new Set<string>();
-    clubCourts.forEach((c) => c.slots[day].forEach((s) => set.add(s.time)));
+    clubCourts.forEach((c) => getSlotsFor(c, day).forEach((s) => set.add(s.time)));
     return Array.from(set).sort();
   }, [clubCourts, day]);
 
@@ -26,24 +28,7 @@ export default function CalendarPage() {
             Day view across all your courts.
           </p>
         </div>
-        <div className="flex gap-2">
-          {(["today", "tomorrow"] as const).map((d) => (
-            <button
-              key={d}
-              onClick={() => setDay(d)}
-              className="padelr-pill"
-              style={{
-                background: day === d ? "var(--padelr-lime)" : "rgba(255,255,255,0.05)",
-                color: day === d ? "var(--padelr-navy)" : "var(--padelr-ink)",
-                fontWeight: day === d ? 600 : 500,
-                textTransform: "capitalize",
-                cursor: "pointer",
-              }}
-            >
-              {d}
-            </button>
-          ))}
-        </div>
+        <DatePicker value={day} onChange={setDay} />
       </div>
 
       <div className="padelr-card mt-6 overflow-x-auto">
@@ -77,7 +62,7 @@ export default function CalendarPage() {
                   {h}
                 </td>
                 {clubCourts.map((c) => {
-                  const slot = c.slots[day].find((s) => s.time === h);
+                  const slot = getSlotsFor(c, day).find((s) => s.time === h);
                   if (!slot) {
                     return (
                       <td

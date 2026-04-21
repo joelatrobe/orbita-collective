@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { usePadelr } from "../store/PadelrStore";
+import { getSlotsFor, resolveDateKey } from "../data/dates";
 
 export default function ClubDashboard() {
   const { courts, bookings, clubs, activeClubId } = usePadelr();
@@ -13,14 +14,17 @@ export default function ClubDashboard() {
   );
   const clubCourtIds = clubCourts.map((c) => c.id);
 
+  const todayIso = resolveDateKey("today");
+  const isToday = (d: string) => d === "today" || d === todayIso;
+
   const todaysBookings = bookings.filter(
-    (b) => b.date === "today" && b.status === "confirmed" && clubCourtIds.includes(b.courtId),
+    (b) => isToday(b.date) && b.status === "confirmed" && clubCourtIds.includes(b.courtId),
   );
   const revenueToday = todaysBookings.reduce((sum, b) => sum + b.totalPrice, 0);
 
-  const slotsToday = clubCourts.reduce((acc, c) => acc + c.slots.today.length, 0);
+  const slotsToday = clubCourts.reduce((acc, c) => acc + getSlotsFor(c, "today").length, 0);
   const bookedToday = clubCourts.reduce(
-    (acc, c) => acc + c.slots.today.filter((s) => s.booked).length,
+    (acc, c) => acc + getSlotsFor(c, "today").filter((s) => s.booked).length,
     0,
   );
   const utilisation = slotsToday === 0 ? 0 : Math.round((bookedToday / slotsToday) * 100);
@@ -82,8 +86,8 @@ export default function ClubDashboard() {
         </h2>
         <div className="mt-3 space-y-2">
           {clubCourts.map((c) => {
-            const total = c.slots.today.length;
-            const booked = c.slots.today.filter((s) => s.booked).length;
+            const total = getSlotsFor(c, "today").length;
+            const booked = getSlotsFor(c, "today").filter((s) => s.booked).length;
             const pct = total === 0 ? 0 : Math.round((booked / total) * 100);
             return (
               <div key={c.id} className="padelr-card p-4">

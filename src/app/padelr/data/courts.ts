@@ -30,7 +30,7 @@ export const courts: Court[] = [
       tomorrow: buildSlots(7, 22, [8, 17, 20]),
     },
     clubOwnerId: "club-shoreditch",
-    photoGradient: "from-sky-700 via-blue-500 to-sky-300",
+    scene: "rooftop-dusk",
   },
   {
     id: "court-shoreditch-2",
@@ -51,7 +51,7 @@ export const courts: Court[] = [
       tomorrow: buildSlots(7, 22, [9, 12, 18]),
     },
     clubOwnerId: "club-shoreditch",
-    photoGradient: "from-blue-800 via-blue-600 to-cyan-300",
+    scene: "rooftop-night",
   },
   {
     id: "court-battersea-1",
@@ -72,7 +72,7 @@ export const courts: Court[] = [
       tomorrow: buildSlots(6, 23, [9, 13, 19]),
     },
     clubOwnerId: "club-battersea",
-    photoGradient: "from-indigo-800 via-blue-600 to-sky-300",
+    scene: "indoor-bright",
   },
   {
     id: "court-retiro-1",
@@ -93,7 +93,7 @@ export const courts: Court[] = [
       tomorrow: buildSlots(8, 22, [9, 11, 20]),
     },
     clubOwnerId: "club-retiro",
-    photoGradient: "from-cyan-700 via-sky-500 to-blue-300",
+    scene: "golden-hour",
   },
   {
     id: "court-chamartin-1",
@@ -114,7 +114,7 @@ export const courts: Court[] = [
       tomorrow: buildSlots(7, 23, [10, 16, 19]),
     },
     clubOwnerId: "club-chamartin",
-    photoGradient: "from-blue-700 via-sky-500 to-white",
+    scene: "sunlit-day",
   },
   {
     id: "court-eixample-1",
@@ -135,6 +135,6 @@ export const courts: Court[] = [
       tomorrow: buildSlots(7, 22, [8, 15, 19]),
     },
     clubOwnerId: "club-eixample",
-    photoGradient: "from-sky-800 via-blue-500 to-cyan-300",
+    scene: "morning-glass",
   },
 ];

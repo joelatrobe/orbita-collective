@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePadelr } from "../../store/PadelrStore";
+import { PadelCourtArt } from "../../components/PadelCourtArt";
 
 export default function ManageCourtsPage() {
   const { courts, activeClubId } = usePadelr();
@@ -16,11 +17,10 @@ export default function ManageCourtsPage() {
 
       <ul className="mt-6 space-y-3">
         {clubCourts.map((c) => (
-          <li key={c.id} className="padelr-card flex flex-col gap-4 p-5 sm:flex-row sm:items-center">
-            <div
-              className={`bg-gradient-to-br ${c.photoGradient} hidden h-20 w-20 shrink-0 rounded-xl sm:block`}
-              aria-hidden
-            />
+          <li key={c.id} className="padelr-card padelr-lined-top flex flex-col gap-4 p-5 sm:flex-row sm:items-center">
+            <div className="hidden h-20 w-20 shrink-0 overflow-hidden rounded-xl sm:block" aria-hidden>
+              <PadelCourtArt scene={c.scene} photoUrl={c.photoUrl} className="h-full w-full" />
+            </div>
             <div className="flex-1">
               <div className="padelr-heading text-lg">{c.name}</div>
               <div className="text-sm" style={{ color: "var(--padelr-muted)" }}>

@@ -47,7 +47,13 @@ export default function DiscoverPage() {
     <div>
       <section className="pt-2 md:pt-6">
         <h1 className="padelr-heading text-3xl md:text-5xl">Find your court</h1>
-        <p className="mt-2 text-sm md:text-base" style={{ color: "var(--padelr-ink-soft)" }}>
+        <div className="mt-3 flex items-center gap-3">
+          <div className="padelr-baseline-short" aria-hidden />
+          <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--padelr-ink-soft)" }}>
+            Discover
+          </p>
+        </div>
+        <p className="mt-3 text-sm md:text-base" style={{ color: "var(--padelr-ink-soft)" }}>
           Search by city or venue, check gear, and book in seconds.
         </p>
       </section>
@@ -93,7 +99,9 @@ export default function DiscoverPage() {
         <section className="mt-8">
           <div className="mb-3 flex items-baseline justify-between">
             <div>
-              <h2 className="padelr-heading text-lg md:text-xl">Open games nearby</h2>
+              <div className="padelr-section-head inline-block">
+            <h2 className="padelr-heading text-lg md:text-xl">Open games nearby</h2>
+          </div>
               <p className="text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
                 Jump into a group that needs players
               </p>
@@ -118,7 +126,9 @@ export default function DiscoverPage() {
 
       <section className="mt-8">
         <div className="mb-3 flex items-baseline justify-between">
-          <h2 className="padelr-heading text-lg md:text-xl">Nearby courts</h2>
+          <div className="padelr-section-head inline-block">
+            <h2 className="padelr-heading text-lg md:text-xl">Nearby courts</h2>
+          </div>
           <span className="text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
             {filtered.length} result{filtered.length === 1 ? "" : "s"}
           </span>

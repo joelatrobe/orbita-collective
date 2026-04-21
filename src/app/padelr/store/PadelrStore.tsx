@@ -11,13 +11,14 @@ import {
 import { courts as seedCourts } from "../data/courts";
 import { clubs as seedClubs } from "../data/clubs";
 import { seedBookings } from "../data/bookings";
+import { generateEmptySlots } from "../data/dates";
 import type { Booking, Court, Slot } from "../data/types";
 
 type Mode = "player" | "club" | null;
 
 export type CreateBookingInput = {
   courtId: string;
-  date: "today" | "tomorrow";
+  date: string; // "today" | "tomorrow" | YYYY-MM-DD
   time: string;
   players: 2 | 4;
   partySize: number;
@@ -69,6 +70,17 @@ const markSlot = (
 export function spotsLeft(b: Booking): number {
   return Math.max(0, b.players - b.partySize - b.joiners.length);
 }
+
+const ensureDateBucket = (court: Court, date: string): Court => {
+  if (court.slots[date]) return court;
+  return {
+    ...court,
+    slots: {
+      ...court.slots,
+      [date]: generateEmptySlots(court.openingHours),
+    },
+  };
+};
 
 export function PadelrProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<Mode>(null);
@@ -126,22 +138,22 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
     };
     setBookings((prev) => [booking, ...prev]);
     setCourts((prev) =>
-      prev.map((c) =>
-        c.id === input.courtId
-          ? {
-              ...c,
-              slots: {
-                ...c.slots,
-                [input.date]: markSlot(
-                  c.slots[input.date],
-                  input.time,
-                  true,
-                  reference,
-                ),
-              },
-            }
-          : c,
-      ),
+      prev.map((c) => {
+        if (c.id !== input.courtId) return c;
+        const withBucket = ensureDateBucket(c, input.date);
+        return {
+          ...withBucket,
+          slots: {
+            ...withBucket.slots,
+            [input.date]: markSlot(
+              withBucket.slots[input.date],
+              input.time,
+              true,
+              reference,
+            ),
+          },
+        };
+      }),
     );
     return booking;
   }, []);
@@ -151,17 +163,18 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
       const target = prev.find((b) => b.id === id);
       if (target) {
         setCourts((cPrev) =>
-          cPrev.map((c) =>
-            c.id === target.courtId
-              ? {
-                  ...c,
-                  slots: {
-                    ...c.slots,
-                    [target.date]: markSlot(c.slots[target.date], target.time, false),
-                  },
-                }
-              : c,
-          ),
+          cPrev.map((c) => {
+            if (c.id !== target.courtId) return c;
+            const bucket = c.slots[target.date];
+            if (!bucket) return c;
+            return {
+              ...c,
+              slots: {
+                ...c.slots,
+                [target.date]: markSlot(bucket, target.time, false),
+              },
+            };
+          }),
         );
       }
       return prev.map((b) =>
@@ -170,47 +183,41 @@ export function PadelrProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const joinBooking = useCallback(
-    (id: string) => {
-      setBookings((prev) =>
-        prev.map((b) => {
-          if (b.id !== id) return b;
-          if (!b.openToJoin) return b;
-          if (b.joiners.some((j) => j.name === currentPlayer)) return b;
-          if (spotsLeft(b) <= 0) return b;
-          const nextJoiners = [
-            ...b.joiners,
-            { name: currentPlayer, joinedAt: new Date().toISOString() },
-          ];
-          const full = b.players - b.partySize - nextJoiners.length <= 0;
-          return {
-            ...b,
-            joiners: nextJoiners,
-            openToJoin: !full,
-          };
-        }),
-      );
-    },
-    [currentPlayer],
-  );
+  const joinBooking = useCallback((id: string) => {
+    setBookings((prev) =>
+      prev.map((b) => {
+        if (b.id !== id) return b;
+        if (!b.openToJoin) return b;
+        if (b.joiners.some((j) => j.name === currentPlayer)) return b;
+        if (spotsLeft(b) <= 0) return b;
+        const nextJoiners = [
+          ...b.joiners,
+          { name: currentPlayer, joinedAt: new Date().toISOString() },
+        ];
+        const full = b.players - b.partySize - nextJoiners.length <= 0;
+        return {
+          ...b,
+          joiners: nextJoiners,
+          openToJoin: !full,
+        };
+      }),
+    );
+  }, []);
 
-  const leaveBooking = useCallback(
-    (id: string) => {
-      setBookings((prev) =>
-        prev.map((b) => {
-          if (b.id !== id) return b;
-          const nextJoiners = b.joiners.filter((j) => j.name !== currentPlayer);
-          if (nextJoiners.length === b.joiners.length) return b;
-          return {
-            ...b,
-            joiners: nextJoiners,
-            openToJoin: b.status === "confirmed" ? true : b.openToJoin,
-          };
-        }),
-      );
-    },
-    [currentPlayer],
-  );
+  const leaveBooking = useCallback((id: string) => {
+    setBookings((prev) =>
+      prev.map((b) => {
+        if (b.id !== id) return b;
+        const nextJoiners = b.joiners.filter((j) => j.name !== currentPlayer);
+        if (nextJoiners.length === b.joiners.length) return b;
+        return {
+          ...b,
+          joiners: nextJoiners,
+          openToJoin: b.status === "confirmed" ? true : b.openToJoin,
+        };
+      }),
+    );
+  }, []);
 
   const value = useMemo<StoreShape>(
     () => ({

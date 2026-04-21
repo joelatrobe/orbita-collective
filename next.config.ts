@@ -37,8 +37,8 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       // Font files
       "font-src 'self' https://fonts.gstatic.com",
-      // Images: self + data URIs
-      "img-src 'self' data: blob:",
+      // Images: self + data URIs + common free photo hosts (for Padelr court art)
+      "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://source.unsplash.com",
       // Fetch/XHR — self only
       "connect-src 'self'",
       // Allow Google Calendar booking to open

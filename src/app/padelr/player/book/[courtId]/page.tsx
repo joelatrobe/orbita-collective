@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { use, useMemo, useState } from "react";
 import { usePadelr } from "../../../store/PadelrStore";
 import type { Booking } from "../../../data/types";
+import { DatePicker } from "../../../components/DatePicker";
+import { PadelCourtArt } from "../../../components/PadelCourtArt";
+import { formatFriendly, getSlotsFor } from "../../../data/dates";
 
 export default function BookingPage({ params }: { params: Promise<{ courtId: string }> }) {
   const { courtId } = use(params);
@@ -12,12 +15,10 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
   const { courts, createBooking } = usePadelr();
   const court = courts.find((c) => c.id === courtId);
 
-  const initialDay = (sp.get("day") === "tomorrow" ? "tomorrow" : "today") as
-    | "today"
-    | "tomorrow";
+  const initialDay = sp.get("day") ?? "today";
   const initialTime = sp.get("time") ?? "";
 
-  const [day, setDay] = useState<"today" | "tomorrow">(initialDay);
+  const [day, setDay] = useState<string>(initialDay);
   const [time, setTime] = useState<string>(initialTime);
   const [gameSize, setGameSize] = useState<2 | 4>(4);
   const [partySize, setPartySize] = useState<number>(4);
@@ -26,7 +27,7 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
 
   const availableTimes = useMemo(() => {
     if (!court) return [];
-    return court.slots[day].filter((s) => !s.booked);
+    return getSlotsFor(court, day).filter((s) => !s.booked);
   }, [court, day]);
 
   if (!court) {
@@ -66,7 +67,7 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
   if (confirmed) {
     return (
       <div className="mx-auto max-w-lg pt-6">
-        <div className="padelr-card overflow-hidden p-8 text-center">
+        <div className="padelr-card padelr-lined-top overflow-hidden p-8 text-center">
           <div
             className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full"
             style={{ background: "var(--padelr-line)", color: "var(--padelr-court-dark)" }}
@@ -77,12 +78,14 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
           <h1 className="padelr-heading text-2xl">You&rsquo;re booked</h1>
           <p className="mt-1 text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
             {confirmed.openToJoin
-              ? "We&rsquo;ve opened the spare spots to other players — they can request to join."
-              : "We&rsquo;ve saved your slot. A reminder will go out closer to time."}
+              ? "We've opened the spare spots to other players — they can request to join."
+              : "We've saved your slot. A reminder will go out closer to time."}
           </p>
 
+          <div className="padelr-net mx-auto mt-6 w-24" aria-hidden />
+
           <div
-            className="mt-6 rounded-xl p-4 text-left"
+            className="mt-4 rounded-xl p-4 text-left"
             style={{ background: "rgba(255,255,255,0.10)", border: "1px solid var(--padelr-line-soft)" }}
           >
             <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-ink-soft)" }}>
@@ -98,8 +101,8 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
             </div>
             <div>
               <dt style={{ color: "var(--padelr-ink-muted)" }}>When</dt>
-              <dd className="font-medium capitalize">
-                {confirmed.date} · {confirmed.time}
+              <dd className="font-medium">
+                {formatFriendly(confirmed.date)} · {confirmed.time}
               </dd>
             </div>
             <div>
@@ -148,41 +151,41 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
         ← Back to court
       </Link>
 
-      <h1 className="padelr-heading text-3xl">Book {court.name}</h1>
-      <p className="mt-1 text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
+      <div className="relative mb-5 h-32 overflow-hidden rounded-2xl">
+        <PadelCourtArt scene={court.scene} photoUrl={court.photoUrl} className="absolute inset-0 h-full w-full" />
+        <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(20,74,130,0.7), transparent 60%)" }}>
+          <h1 className="padelr-heading text-2xl">Book {court.name}</h1>
+        </div>
+        <div className="absolute inset-x-4 bottom-2"><div className="padelr-baseline" /></div>
+      </div>
+
+      <p className="text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
         Three steps — you&rsquo;ll be playing by then.
       </p>
 
       <div className="mt-6 space-y-5">
-        <section className="padelr-card p-5">
+        <section className="padelr-card padelr-lined-top p-5">
           <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-ink-soft)" }}>
             1 · Day
           </div>
-          <div className="mt-3 flex gap-2">
-            {(["today", "tomorrow"] as const).map((d) => (
-              <button
-                key={d}
-                onClick={() => {
-                  setDay(d);
-                  setTime("");
-                }}
-                className="padelr-slot"
-                data-state={day === d ? "selected" : undefined}
-                style={{ flex: 1, padding: "12px 16px", textTransform: "capitalize" }}
-              >
-                {d}
-              </button>
-            ))}
+          <div className="mt-3">
+            <DatePicker
+              value={day}
+              onChange={(v) => {
+                setDay(v);
+                setTime("");
+              }}
+            />
           </div>
         </section>
 
-        <section className="padelr-card p-5">
+        <section className="padelr-card padelr-lined-top p-5">
           <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-ink-soft)" }}>
             2 · Time
           </div>
           {availableTimes.length === 0 ? (
             <p className="mt-3 text-sm" style={{ color: "var(--padelr-ink-muted)" }}>
-              No free slots on this day. Try the other day.
+              No free slots on this day. Try another.
             </p>
           ) : (
             <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-6">
@@ -200,7 +203,7 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
           )}
         </section>
 
-        <section className="padelr-card p-5">
+        <section className="padelr-card padelr-lined-top p-5">
           <div className="text-xs uppercase tracking-widest" style={{ color: "var(--padelr-ink-soft)" }}>
             3 · Your game
           </div>
@@ -248,7 +251,9 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
               style={{ background: "rgba(255,255,255,0.06)" }}
             >
               <div>
-                <div className="text-sm font-medium">Open the spare {remainingSpots} spot{remainingSpots === 1 ? "" : "s"}?</div>
+                <div className="text-sm font-medium">
+                  Open the spare {remainingSpots} spot{remainingSpots === 1 ? "" : "s"}?
+                </div>
                 <div className="text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
                   Other players will see your game and can join.
                 </div>
@@ -264,7 +269,7 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
         </section>
 
         <div
-          className="padelr-card flex items-center justify-between p-5"
+          className="padelr-card padelr-lined-top flex items-center justify-between p-5"
           style={{ background: "rgba(255,255,255,0.08)" }}
         >
           <div>
@@ -273,7 +278,7 @@ export default function BookingPage({ params }: { params: Promise<{ courtId: str
             </div>
             <div className="padelr-heading text-3xl">£{totalPrice}</div>
             <div className="text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
-              {time ? `${day} · ${time}` : "Pick a time to continue"}
+              {time ? `${formatFriendly(day)} · ${time}` : "Pick a time to continue"}
             </div>
           </div>
           <button

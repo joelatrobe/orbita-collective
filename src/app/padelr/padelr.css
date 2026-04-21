@@ -162,39 +162,136 @@
   background: var(--padelr-court);
 }
 
-/* Court-line motif used on hero cards and section headers */
-.padelr-court-lines {
-  position: relative;
+/* --- Padel court-line branding --------------------------------------- */
+
+/* Thick solid baseline above a section — like a padel baseline */
+.padelr-baseline {
+  height: 5px;
+  border-radius: 2px;
+  background: var(--padelr-line);
+  width: 100%;
 }
-.padelr-court-lines::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    transparent 0,
-    transparent 8%,
-    var(--padelr-line) 8%,
-    var(--padelr-line) 92%,
-    transparent 92%
-  );
-  opacity: 0.6;
+.padelr-baseline-short {
+  height: 5px;
+  width: 56px;
+  border-radius: 2px;
+  background: var(--padelr-line);
 }
 
-/* The "net" motif: dashed white line for a padel net feel */
+/* Service-line: thinner white line */
+.padelr-serviceline {
+  height: 2px;
+  background: var(--padelr-line-soft);
+  border-radius: 1px;
+  width: 100%;
+}
+
+/* Net: dashed white line mimicking a padel net */
 .padelr-net {
+  height: 3px;
   background-image: linear-gradient(
     to right,
     var(--padelr-line) 0,
-    var(--padelr-line) 6px,
-    transparent 6px,
-    transparent 12px
+    var(--padelr-line) 10px,
+    transparent 10px,
+    transparent 18px
   );
-  background-size: 12px 2px;
+  background-size: 18px 3px;
   background-repeat: repeat-x;
-  background-position: center;
+  background-position: left center;
+}
+
+/* Section heading with a thick white underline — like a baseline */
+.padelr-section-head {
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+.padelr-section-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 4px;
+  background: var(--padelr-line);
+  border-radius: 2px;
+}
+
+/* Card with a solid white line along the top — like a court sideline */
+.padelr-lined-top {
+  position: relative;
+}
+.padelr-lined-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background: var(--padelr-line);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+/* Card with framed outer lines like a court outline */
+.padelr-lined-frame {
+  position: relative;
+}
+.padelr-lined-frame::before,
+.padelr-lined-frame::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
   height: 2px;
+  background: var(--padelr-line);
+  opacity: 0.55;
+  border-radius: 1px;
+}
+.padelr-lined-frame::before {
+  top: 10px;
+}
+.padelr-lined-frame::after {
+  bottom: 10px;
+}
+
+/* Big hero divider: double thick lines with a dashed net between */
+.padelr-hero-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0;
+}
+.padelr-hero-divider .line {
+  height: 4px;
+  background: var(--padelr-line);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+.padelr-hero-divider .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--padelr-line);
+  opacity: 0.9;
+}
+
+/* Page background: subtle painted sidelines at the edges (desktop only) */
+@media (min-width: 1024px) {
+  .padelr-scope::before,
+  .padelr-scope::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--padelr-line);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .padelr-scope::before { left: 28px; }
+  .padelr-scope::after { right: 28px; }
 }

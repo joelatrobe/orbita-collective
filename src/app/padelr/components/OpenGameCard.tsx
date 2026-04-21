@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { spotsLeft, usePadelr } from "../store/PadelrStore";
 import type { Booking, Court } from "../data/types";
+import { formatFriendly } from "../data/dates";
+import { PadelCourtArt } from "./PadelCourtArt";
 
 export function OpenGameCard({
   booking,
@@ -19,17 +21,17 @@ export function OpenGameCard({
 
   return (
     <div
-      className="padelr-card relative overflow-hidden"
+      className="padelr-card padelr-lined-top relative overflow-hidden"
       style={{ padding: compact ? "14px" : "18px" }}
     >
       <div
         aria-hidden
-        className={`bg-gradient-to-br ${court.photoGradient} absolute inset-y-0 right-0 w-24 opacity-80`}
-        style={{
-          clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)",
-        }}
-      />
-      <div className="relative pr-24">
+        className="absolute inset-y-0 right-0 w-28"
+        style={{ clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)" }}
+      >
+        <PadelCourtArt scene={court.scene} photoUrl={court.photoUrl} className="h-full w-full opacity-80" />
+      </div>
+      <div className="relative pr-28">
         <div className="flex items-center gap-2">
           <span
             className="padelr-pill"
@@ -43,7 +45,7 @@ export function OpenGameCard({
         </div>
         <h3 className={`padelr-heading mt-2 ${compact ? "text-base" : "text-lg"}`}>{court.name}</h3>
         <div className="mt-1 text-xs" style={{ color: "var(--padelr-ink-soft)" }}>
-          <span className="capitalize">{booking.date}</span> · {booking.time} · {court.city}
+          {formatFriendly(booking.date)} · {booking.time} · {court.city}
         </div>
         <div className="mt-2 text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
           Hosted by <strong style={{ color: "var(--padelr-ink)" }}>{booking.playerName}</strong>

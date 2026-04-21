@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { spotsLeft, usePadelr } from "../../store/PadelrStore";
+import { PadelCourtArt } from "../../components/PadelCourtArt";
+import { formatFriendly } from "../../data/dates";
 
 export default function BookingsPage() {
   const { bookings, courts, cancelBooking, leaveBooking, currentPlayer } = usePadelr();
@@ -54,10 +56,9 @@ export default function BookingsPage() {
               const spots = spotsLeft(b);
               return (
                 <li key={b.id} className="padelr-card flex flex-col gap-3 p-5 sm:flex-row sm:items-center">
-                  <div
-                    className={`bg-gradient-to-br ${court.photoGradient} hidden h-16 w-16 shrink-0 rounded-xl sm:block`}
-                    aria-hidden
-                  />
+                  <div className="hidden h-16 w-16 shrink-0 overflow-hidden rounded-xl sm:block" aria-hidden>
+                    <PadelCourtArt scene={court.scene} photoUrl={court.photoUrl} className="h-full w-full" />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="text-xs" style={{ color: "var(--padelr-line)" }}>
@@ -78,7 +79,7 @@ export default function BookingsPage() {
                     </div>
                     <div className="padelr-heading text-lg">{court.name}</div>
                     <div className="text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
-                      <span className="capitalize">{b.date}</span> · {b.time} · {b.partySize}/{b.players} in your party · £{b.totalPrice}
+                      {formatFriendly(b.date)} · {b.time} · {b.partySize}/{b.players} in your party · £{b.totalPrice}
                     </div>
                     {b.joiners.length > 0 ? (
                       <div className="mt-1 text-xs" style={{ color: "var(--padelr-ink-muted)" }}>
@@ -124,10 +125,9 @@ export default function BookingsPage() {
               if (!court) return null;
               return (
                 <li key={b.id} className="padelr-card flex flex-col gap-3 p-5 sm:flex-row sm:items-center">
-                  <div
-                    className={`bg-gradient-to-br ${court.photoGradient} hidden h-16 w-16 shrink-0 rounded-xl sm:block`}
-                    aria-hidden
-                  />
+                  <div className="hidden h-16 w-16 shrink-0 overflow-hidden rounded-xl sm:block" aria-hidden>
+                    <PadelCourtArt scene={court.scene} photoUrl={court.photoUrl} className="h-full w-full" />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="text-xs" style={{ color: "var(--padelr-ink-soft)" }}>
@@ -139,7 +139,7 @@ export default function BookingsPage() {
                     </div>
                     <div className="padelr-heading text-lg">{court.name}</div>
                     <div className="text-sm" style={{ color: "var(--padelr-ink-soft)" }}>
-                      <span className="capitalize">{b.date}</span> · {b.time} · hosted by {b.playerName}
+                      {formatFriendly(b.date)} · {b.time} · hosted by {b.playerName}
                     </div>
                   </div>
                   <div className="flex gap-2">
