@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orbita Collective — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:    #F1ECDF;
+    --charcoal: #1F1F1F;
+    --coral:    #FA8775;
+    --plum:     #6B5B6E;
+    --amber:    #F7B65A;
+    --navy:     #245A82;
+    --sky:      #82B9E5;
+    --slate:    #B6C2CC;
+    --peach:    #F5D6B8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Poppins', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+  .header {
+    margin-bottom: 64px;
+  }
+  .logo-mark {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .logo-mark .dot {
+    width: 28px; height: 28px;
+    background: var(--coral);
+    border-radius: 50%;
+    margin-bottom: 8px;
+  }
+  .logo-mark .word {
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  h1 { font-weight: 700; font-size: 40px; line-height: 1.15; margin-bottom: 12px; }
+  .kicker {
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .lead {
+    font-size: 20px;
+    max-width: 720px;
+    color: var(--charcoal);
+    opacity: 0.85;
+  }
+  section {
+    margin-bottom: 72px;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(31,31,31,0.12);
+    padding-bottom: 12px;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  /* Color grid */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .swatch {
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 1px 0 rgba(31,31,31,0.06);
+  }
+  .swatch .name { font-weight: 700; font-size: 16px; }
+  .swatch .hex  { font-weight: 400; font-size: 13px; opacity: 0.85; }
+  .swatch .role { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+  .on-dark  { color: var(--cream); }
+  .on-light { color: var(--charcoal); }
+
+  /* Type specimens */
+  .type-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(31,31,31,0.08);
+  }
+  .type-row .label { font-size: 12px; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; }
+  .specimen-hero    { font-weight: 800; font-size: 56px; line-height: 1.05; letter-spacing: -1px; }
+  .specimen-section { font-weight: 700; font-size: 32px; }
+  .specimen-sub     { font-weight: 400; font-size: 20px; }
+  .specimen-body    { font-weight: 400; font-size: 16px; max-width: 640px; }
+  .specimen-highlight { font-weight: 700; font-size: 22px; color: var(--coral); }
+  .specimen-italic  { font-style: italic; font-weight: 700; font-size: 18px; color: var(--coral); }
+
+  /* Pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pillar {
+    background: var(--sky);
+    color: var(--cream);
+    padding: 32px;
+    border-radius: 20px;
+  }
+  .pillar h4 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .pillar p  { font-size: 14px; font-weight: 600; opacity: 0.95; }
+
+  /* Motifs */
+  .motifs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .motif {
+    background: var(--cream);
+    border: 1px solid rgba(31,31,31,0.08);
+    border-radius: 20px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .motif .label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 12px;
+    opacity: 0.65;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .motif .ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--coral);
+    position: relative;
+  }
+  .motif .ring::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 60px;
+    border: 2px solid var(--coral);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    opacity: 0.6;
+  }
+  .motif .o-mark {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    position: relative;
+  }
+  .motif .o-mark::before {
+    content: '';
+    position: absolute;
+    width: 50px; height: 50px;
+    background: var(--cream);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .motif .o-mark::after {
+    content: '';
+    position: absolute;
+    width: 30px; height: 30px;
+    background: var(--coral);
+    border-radius: 50%;
+    bottom: -8px; left: -8px;
+  }
+  .motif .semi {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: var(--coral);
+    border-radius: 50%;
+    right: -100px; top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Voice */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .voice-col h4 { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+  .voice-col ul { list-style: none; }
+  .voice-col li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(31,31,31,0.06);
+    font-size: 14px;
+  }
+  .use   li::before { content: '✓ '; color: var(--coral); font-weight: 700; }
+  .avoid li::before { content: '✗ '; color: var(--plum); font-weight: 700; }
+
+  /* Logo lockups */
+  .logo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .logo-card {
+    border-radius: 20px;
+    padding: 48px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-card.light { background: var(--cream); border: 1px solid rgba(31,31,31,0.08); }
+  .logo-card.dark  { background: var(--charcoal); }
+  .logo-card .word {
+    font-weight: 800;
+    font-size: 80px;
+    letter-spacing: -2px;
+    line-height: 1;
+    position: relative;
+    padding-left: 20px;
+  }
+  .logo-card.light .word { color: var(--charcoal); }
+  .logo-card.dark  .word { color: var(--cream); }
+  .logo-card .word::before {
+    content: '';
+    position: absolute;
+    width: 26px; height: 26px;
+    background: var(--coral);
+    border-radius: 50%;
+    bottom: -2px; left: 0;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(31,31,31,0.12);
+    font-size: 13px;
+    opacity: 0.6;
+  }
+
+  /* Sample composition */
+  .sample {
+    background: var(--cream);
+    border: 1px solid rgba(31,31,31,0.08);
+    border-radius: 20px;
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sample .pull {
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 16px;
+    max-width: 520px;
+  }
+  .sample .body {
+    font-size: 16px;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+  .sample .deco {
+    position: absolute;
+    width: 280px; height: 280px;
+    background: var(--coral);
+    border-radius: 50%;
+    right: -120px; bottom: -80px;
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="header">
+    <div class="logo-mark">
+      <span class="dot"></span>
+      <span class="word">Orbita</span>
+    </div>
+    <p class="kicker">Brand Guidelines · v1.0</p>
+    <h1>The visual and verbal system for Orbita Collective.</h1>
+    <p class="lead">Apply this system to every artifact — decks, documents, social, web, proposals. Cream canvas, Poppins type, the coral dot, and a calm sense of orbit.</p>
+  </header>
+
+  <section>
+    <h2>Logo</h2>
+    <div class="logo-row">
+      <div class="logo-card light"><div class="word">Orbita</div></div>
+      <div class="logo-card dark"><div class="word">Orbita</div></div>
+    </div>
+    <p style="margin-top:16px; font-size:14px; opacity:0.75;">
+      The coral dot stays coral in every variant — it is the brand. For animation, <strong>always use V1</strong> of the animated logo. Never V2.
+    </p>
+  </section>
+
+  <section>
+    <h2>Color palette</h2>
+    <h3 style="margin-top:8px;">Foundations</h3>
+    <div class="swatch-grid" style="margin-bottom:32px;">
+      <div class="swatch on-light" style="background:#F1ECDF; border:1px solid rgba(31,31,31,0.08);">
+        <div class="name">Cream</div>
+        <div class="hex">#F1ECDF</div>
+        <div class="role">Primary background</div>
+      </div>
+      <div class="swatch on-dark" style="background:#1F1F1F;">
+        <div class="name">Charcoal</div>
+        <div class="hex">#1F1F1F</div>
+        <div class="role">Primary text</div>
+      </div>
+      <div class="swatch on-dark" style="background:#FA8775;">
+        <div class="name">Coral</div>
+        <div class="hex">#FA8775</div>
+        <div class="role">Signature accent</div>
+      </div>
+    </div>
+
+    <h3>Secondary</h3>
+    <div class="swatch-grid">
+      <div class="swatch on-dark" style="background:#6B5B6E;">
+        <div class="name">Plum</div><div class="hex">#6B5B6E</div>
+      </div>
+      <div class="swatch on-dark" style="background:#F7B65A;">
+        <div class="name">Amber</div><div class="hex">#F7B65A</div>
+      </div>
+      <div class="swatch on-dark" style="background:#245A82;">
+        <div class="name">Navy</div><div class="hex">#245A82</div>
+      </div>
+      <div class="swatch on-dark" style="background:#82B9E5;">
+        <div class="name">Sky Blue</div><div class="hex">#82B9E5</div>
+      </div>
+      <div class="swatch on-light" style="background:#B6C2CC;">
+        <div class="name">Slate</div><div class="hex">#B6C2CC</div>
+      </div>
+      <div class="swatch on-light" style="background:#F5D6B8;">
+        <div class="name">Peach</div><div class="hex">#F5D6B8</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography — Poppins</h2>
+    <div class="type-row"><div class="label">Hero</div><div class="specimen-hero">We reinvented consultancy.</div></div>
+    <div class="type-row"><div class="label">Section title</div><div class="specimen-section">Reinventing by: Product &amp; Service Design</div></div>
+    <div class="type-row"><div class="label">Subtitle</div><div class="specimen-sub">A simple offering that keeps the value</div></div>
+    <div class="type-row"><div class="label">Highlight</div><div class="specimen-highlight">Everything we deliver, you can use.</div></div>
+    <div class="type-row"><div class="label">Italic accent</div><div class="specimen-italic">Customer Experience</div></div>
+    <div class="type-row"><div class="label">Body</div><div class="specimen-body">We work with the ones who don't just want to improve. They want to lead change from the inside-out. Not theoretical frameworks for the sake of it, or standalone research that gets forgotten on a shelf.</div></div>
+  </section>
+
+  <section>
+    <h2>Brand pillars</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h4>Inspiring</h4>
+        <p>Bringing fresh thinking to complex organisations</p>
+      </div>
+      <div class="pillar">
+        <h4>Impactful</h4>
+        <p>Building progress you can own, and carry forward</p>
+      </div>
+      <div class="pillar">
+        <h4>Affordable</h4>
+        <p>To match how the industry has changed</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Visual motifs</h2>
+    <div class="motifs">
+      <div class="motif"><div class="ring"></div><div class="label">Orbital ring</div></div>
+      <div class="motif"><div class="o-mark"></div><div class="label">O monogram</div></div>
+      <div class="motif"><div class="semi"></div><div class="label">Edge semicircle</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Voice &amp; tone</h2>
+    <div class="voice-grid">
+      <div class="voice-col">
+        <h4>Use</h4>
+        <ul class="use">
+          <li>reinvent</li>
+          <li>own / usable</li>
+          <li>inside-out</li>
+          <li>simple, fresh, impact</li>
+          <li>British English (organise, behaviour)</li>
+          <li>Active voice, contractions</li>
+        </ul>
+      </div>
+      <div class="voice-col">
+        <h4>Avoid</h4>
+        <ul class="avoid">
+          <li>synergize, leverage, paradigm</li>
+          <li>best-in-class, world-class</li>
+          <li>cutting-edge, disruptive</li>
+          <li>deep dive, circle back</li>
+          <li>Holistic, frameworks for their own sake</li>
+          <li>Multiple typefaces</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sample composition</h2>
+    <div class="sample">
+      <div class="pull">A simple offering that keeps the value and lets go of the baggage.</div>
+      <div class="body">We reinvented our operational model so that we are affordable while keeping the quality. Founders Elisa &amp; Joe have 18+ years of experience in Customer Experience, Service Design and strategy.</div>
+      <div class="deco"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    orbitacollective.com · Brand Guidelines · last updated 20 April 2026
+  </footer>
+
+</main>
+</body>
+</html>

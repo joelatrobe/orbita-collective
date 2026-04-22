@@ -47,12 +47,12 @@ export default function CookiesPolicy() {
               <p className="mb-3">We use the following types of cookies:</p>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <strong className="text-dark">Essential cookies</strong> —
+                  <strong className="text-dark">Essential cookies:</strong>{" "}
                   Required for the website to function. These cannot be
                   disabled.
                 </li>
                 <li>
-                  <strong className="text-dark">Analytics cookies</strong> —
+                  <strong className="text-dark">Analytics cookies:</strong>{" "}
                   Help us understand how visitors use our site so we can improve
                   it. Data is anonymised.
                 </li>

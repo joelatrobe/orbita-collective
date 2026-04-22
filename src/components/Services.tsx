@@ -49,7 +49,7 @@ const serviceCategories = [
       { icon: Users, label: "Customer Engagement Strategy", description: "Build a strategy that turns passive customers into active advocates. We design engagement models that create value at every stage of the relationship." },
       { icon: Compass, label: "Cross-functional Alignment", description: "Break down silos between product, design, engineering, and business teams. We facilitate workshops and create frameworks that keep everyone pulling in the same direction." },
       { icon: Search, label: "User-informed Service Strategy", description: "Service strategy grounded in real user needs, not assumptions. We help you build strategies that are evidence-based and designed to evolve with your customers." },
-      { icon: Layers, label: "Design Ops & Tooling", description: "Set up the systems, processes, and tools that make great design repeatable. From design systems to research repositories — infrastructure for design at scale." },
+      { icon: Layers, label: "Design Ops & Tooling", description: "Set up the systems, processes, and tools that make great design repeatable. From design systems to research repositories: infrastructure for design at scale." },
       { icon: BarChart3, label: "Business Casing", description: "Translate user-centred approaches into the language of business value. We build compelling cases that demonstrate ROI and secure buy-in from leadership." },
       { icon: GraduationCap, label: "Upskilling & Training at Scale", description: "Empower your teams with design thinking, research methods, and CX skills. Practical, hands-on training tailored to your organisation's maturity." },
     ],

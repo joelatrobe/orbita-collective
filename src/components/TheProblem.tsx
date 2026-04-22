@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const problems = [
   {
     number: "01",
-    text: "Your customer experience is costing you — but you don't have the in-house expertise to fix it.",
+    text: "Your customer experience is costing you, but you don't have the in-house expertise to fix it.",
   },
   {
     number: "02",
@@ -18,10 +18,10 @@ const problems = [
 ];
 
 const stats = [
-  { value: "18+", label: "Years of experience" },
-  { value: "48h", label: "To kick off" },
-  { value: "50+", label: "Projects delivered" },
-  { value: "£0", label: "Unnecessary retainers" },
+  { value: "18+", label: "Years of combined experience" },
+  { value: "100%", label: "Senior-led, every project" },
+  { value: "3", label: "Ways to collaborate" },
+  { value: "2", label: "Countries, one team" },
 ];
 
 export default function TheProblem() {

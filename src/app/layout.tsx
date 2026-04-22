@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Orbita Collective",
   },
   description:
-    "Orbita Collective is a CX and service design consultancy with 18+ years of experience. We deliver inspiring, impactful, and affordable Customer Experience strategy, user research, and design thinking — without the traditional consultancy premium.",
+    "Orbita Collective is a CX and service design consultancy with 18+ years of experience. We deliver inspiring, impactful, and affordable Customer Experience strategy, user research, and design thinking. No traditional consultancy premium.",
   keywords: [
     "customer experience consultancy",
     "CX consultancy UK",
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
     siteName: "Orbita Collective",
     title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
     description:
-      "CX and service design consultancy with 18+ years of experience. Inspiring, impactful, and affordable — without the traditional consultancy premium.",
+      "CX and service design consultancy with 18+ years of experience. Inspiring, impactful, and affordable. No traditional consultancy premium.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Orbita Collective — Customer Experience & Service Design Consultancy",
+        alt: "Orbita Collective: Customer Experience & Service Design Consultancy",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
     description:
-      "18+ years of CX, service design and design thinking. Inspiring, impactful and affordable — without the consultancy premium.",
+      "18+ years of CX, service design and design thinking. Inspiring, impactful and affordable. No consultancy premium.",
     images: ["/og-image.png"],
   },
   robots: {
