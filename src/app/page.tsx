@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import TheProblem from "@/components/TheProblem";
 import Services from "@/components/Services";
 import Clients from "@/components/Clients";
 import HowWeWork from "@/components/HowWeWork";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <TheProblem />
         <Services />
         <HowWeWork />
         <About />
