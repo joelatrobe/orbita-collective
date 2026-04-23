@@ -20,12 +20,12 @@ const problems = [
 
 const stats = [
   { value: "18+", label: "Years of combined experience" },
-  { value: "100%", label: "Senior-led, every project" },
+  { value: "30%", label: "Less than the average consultancy" },
+  { value: "4 weeks", label: "To first results" },
   { value: "3", label: "Ways to collaborate" },
-  { value: "2", label: "Countries, one team" },
 ];
 
-function ProblemStatement({ problem, index }: { problem: typeof problems[0]; index: number }) {
+function ProblemStatement({ problem }: { problem: typeof problems[0] }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -55,9 +55,42 @@ function ProblemStatement({ problem, index }: { problem: typeof problems[0]; ind
 export default function TheProblem() {
   return (
     <>
-      {/* Stats strip — light section */}
-      <section className="py-0 px-6">
+      {/* Narrative + stats — light section */}
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
+
+          {/* Narrative copy */}
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-24 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <p className="text-coral text-xs font-medium tracking-widest uppercase mb-6">
+                Why we exist
+              </p>
+              <p className="font-serif text-2xl md:text-3xl text-dark leading-snug">
+                We saw our clients being asked to do more with less, while design consultancies stayed the same.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+              className="flex flex-col justify-end"
+            >
+              <p className="text-muted text-base leading-relaxed mb-4">
+                So we built something different: a fixed model that delivers high-quality work without unnecessary overheads.
+              </p>
+              <p className="text-muted text-base leading-relaxed">
+                Everything we deliver, you can use. Not standalone research that gets forgotten on a shelf.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Stats grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,11 +116,12 @@ export default function TheProblem() {
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
 
       {/* Problem statements — dark section */}
-      <section className="mt-24 bg-dark px-6 py-24 md:py-32">
+      <section className="mt-8 bg-dark px-6 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-24">
 
@@ -110,15 +144,15 @@ export default function TheProblem() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="text-cream/30 text-sm leading-relaxed mt-4 hidden md:block"
                 >
-                  Sound familiar? You&apos;re not alone. These are the three challenges we hear from every organisation we work with.
+                  Sound familiar? These are the challenges we hear from every organisation we work with.
                 </motion.p>
               </div>
             </div>
 
             {/* Statements */}
             <div>
-              {problems.map((problem, i) => (
-                <ProblemStatement key={problem.number} problem={problem} index={i} />
+              {problems.map((problem) => (
+                <ProblemStatement key={problem.number} problem={problem} />
               ))}
             </div>
 

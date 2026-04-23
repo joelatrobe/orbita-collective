@@ -24,10 +24,11 @@ interface ServiceItem {
 
 const serviceCategories = [
   {
-    title: "Product & Service Design",
+    title: "Product & Service Innovation",
     subtitle: "Reinventing by doing",
     description:
       "We work with the ones who don't just want to improve. They want to lead change from the inside-out.",
+    kicker: "Understand behaviours, explore opportunities, design with confidence.",
     accent: false,
     services: [
       { icon: Search, label: "User Research", description: "Deep qualitative and quantitative research to uncover what your users truly need. We conduct interviews, contextual enquiries, and usability tests that deliver actionable insights, not shelf-bound reports." },
@@ -44,6 +45,7 @@ const serviceCategories = [
     subtitle: "Reinventing how you work",
     description:
       "Everything we deliver, you can use. Not standalone research that gets forgotten on a shelf.",
+    kicker: "Strategy is just a framework if it doesn't stick. Turn ambition into results.",
     accent: true,
     services: [
       { icon: Users, label: "Customer Engagement Strategy", description: "Build a strategy that turns passive customers into active advocates. We design engagement models that create value at every stage of the relationship." },
@@ -162,6 +164,11 @@ export default function Services() {
                 <p className="text-muted text-sm leading-relaxed max-w-md">
                   {cat.description}
                 </p>
+                {cat.kicker && (
+                  <p className="font-serif italic text-dark/60 text-sm mt-3">
+                    {cat.kicker}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-1">
