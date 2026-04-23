@@ -55,6 +55,46 @@ function ProblemStatement({ problem }: { problem: typeof problems[0] }) {
 export default function TheProblem() {
   return (
     <>
+      {/* Problem statements — dark section */}
+      <section className="bg-dark px-6 py-24 md:py-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-24">
+
+            {/* Sticky label */}
+            <div>
+              <div className="md:sticky md:top-32">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-coral text-xs font-medium tracking-widest uppercase"
+                >
+                  The problem
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-cream/30 text-sm leading-relaxed mt-4 hidden md:block"
+                >
+                  Sound familiar? These are the challenges we hear from every organisation we work with.
+                </motion.p>
+              </div>
+            </div>
+
+            {/* Statements */}
+            <div>
+              {problems.map((problem) => (
+                <ProblemStatement key={problem.number} problem={problem} />
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Narrative + stats — light section */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
@@ -120,45 +160,6 @@ export default function TheProblem() {
         </div>
       </section>
 
-      {/* Problem statements — dark section */}
-      <section className="mt-8 bg-dark px-6 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-24">
-
-            {/* Sticky label */}
-            <div>
-              <div className="md:sticky md:top-32">
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-coral text-xs font-medium tracking-widest uppercase"
-                >
-                  The problem
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-cream/30 text-sm leading-relaxed mt-4 hidden md:block"
-                >
-                  Sound familiar? These are the challenges we hear from every organisation we work with.
-                </motion.p>
-              </div>
-            </div>
-
-            {/* Statements */}
-            <div>
-              {problems.map((problem) => (
-                <ProblemStatement key={problem.number} problem={problem} />
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </section>
     </>
   );
 }
