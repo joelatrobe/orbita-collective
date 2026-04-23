@@ -47,7 +47,7 @@ function createParticles(w: number, h: number): Particle[] {
       originY: py,
       vx: (Math.random() - 0.5) * 0.2,
       vy: (Math.random() - 0.5) * 0.2,
-      size: 0.4 + depth * 1.3,
+      size: 0.46 + depth * 1.495,
       depth,
       color,
       baseAlpha: 0.25 + depth * 0.35,
