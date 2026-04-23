@@ -5,6 +5,7 @@
   --foreground: #1a1a1a;
   --accent-coral: #ff876f;
   --accent-blue: #8db3db;
+  --navy: #245A82;
   --cream: #f4f1eb;
   --dark: #1a1a1a;
   --muted: #6b6b6b;
@@ -22,6 +23,7 @@
   --color-dark: #1a1a1a;
   --color-coral: #ff876f;
   --color-blue-accent: #8db3db;
+  --color-navy: #245A82;
   --color-muted: #6b6b6b;
   --color-muted-light: #9a9a9a;
   --font-sans: var(--font-poppins);

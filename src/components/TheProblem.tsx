@@ -86,8 +86,8 @@ export default function TheProblem() {
         </div>
       </section>
 
-      {/* Problem statements — dark section */}
-      <section className="mt-24 bg-dark px-6 py-24 md:py-32">
+      {/* Problem statements — navy section */}
+      <section className="mt-24 bg-navy px-6 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-24">
 
