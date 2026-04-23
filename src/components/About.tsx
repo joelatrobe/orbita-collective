@@ -57,10 +57,6 @@ export default function About() {
                 have to come at a cost. Everything we deliver, you can use from
                 day one.
               </p>
-              <p className="flex items-center gap-2 text-dark/40 text-sm pt-1">
-                <span>📍</span>
-                <span>London & Italy</span>
-              </p>
             </div>
           </motion.div>
 

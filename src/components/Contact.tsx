@@ -52,7 +52,12 @@ export default function Contact() {
             />
           </button>
 
-          <div className="mt-8 flex items-center justify-center gap-6 text-xs text-dark/40">
+          <p className="mt-8 flex items-center justify-center gap-2 text-dark/40 text-xs">
+            <span>📍</span>
+            <span>London &amp; Italy</span>
+          </p>
+
+          <div className="mt-4 flex items-center justify-center gap-6 text-xs text-dark/40">
             <a
               href="mailto:joe@orbitacollective.com"
               className="cursor-pointer hover:text-coral transition-colors"
