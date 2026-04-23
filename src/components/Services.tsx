@@ -122,7 +122,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-32 px-6" ref={ref}>
+    <section id="services" className="py-16 px-6" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, transform: "translateY(30px)" }}

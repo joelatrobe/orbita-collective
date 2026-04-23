@@ -96,7 +96,7 @@ export default function TheProblem() {
       </section>
 
       {/* Narrative + stats — light section */}
-      <section className="py-24 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
 
           {/* Narrative copy */}
