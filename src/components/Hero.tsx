@@ -27,6 +27,7 @@ interface Particle {
   orbitRadius: number;
   orbitAngle: number;
   captured: boolean;
+  lingerFrames: number;
 }
 
 function createParticles(w: number, h: number): Particle[] {
@@ -54,6 +55,7 @@ function createParticles(w: number, h: number): Particle[] {
       orbitRadius: 30 + Math.random() * 120,
       orbitAngle: Math.random() * Math.PI * 2,
       captured: false,
+      lingerFrames: 0,
     });
   }
   return particles;
@@ -125,22 +127,34 @@ function useGravitationalParticles(
         p.vy += (targetY - p.y) * ORBIT_STRENGTH * 0.6;
         p.vx *= 0.92;
         p.vy *= 0.92;
+        p.lingerFrames = 90; // reset linger timer while captured
       } else {
-        // Gentle ambient flow — always moving, never static
-        // Each particle drifts in a slow unique pattern using sin/cos
-        const flowX = Math.sin(time * 0.3 + p.originX * 0.01 + p.originY * 0.007) * 0.08;
-        const flowY = Math.cos(time * 0.25 + p.originY * 0.01 + p.originX * 0.005) * 0.06;
-        p.vx += flowX;
-        p.vy += flowY;
+        if (p.lingerFrames > 0) {
+          // Lingering — barely spring back, keep momentum, fade slowly home
+          p.lingerFrames--;
+          const toOriginX = p.originX - p.x;
+          const toOriginY = p.originY - p.y;
+          const lingerStrength = 0.003 * (1 - p.lingerFrames / 90);
+          p.vx += toOriginX * lingerStrength;
+          p.vy += toOriginY * lingerStrength;
+          p.vx *= 0.97;
+          p.vy *= 0.97;
+        } else {
+          // Normal ambient flow
+          const flowX = Math.sin(time * 0.3 + p.originX * 0.01 + p.originY * 0.007) * 0.08;
+          const flowY = Math.cos(time * 0.25 + p.originY * 0.01 + p.originX * 0.005) * 0.06;
+          p.vx += flowX;
+          p.vy += flowY;
 
-        // Spring back toward origin (soft — lets the drift move them slightly)
-        const toOriginX = p.originX - p.x;
-        const toOriginY = p.originY - p.y;
-        p.vx += toOriginX * 0.015;
-        p.vy += toOriginY * 0.015;
+          // Spring back toward origin (soft — lets the drift move them slightly)
+          const toOriginX = p.originX - p.x;
+          const toOriginY = p.originY - p.y;
+          p.vx += toOriginX * 0.015;
+          p.vy += toOriginY * 0.015;
 
-        p.vx *= 0.95;
-        p.vy *= 0.95;
+          p.vx *= 0.95;
+          p.vy *= 0.95;
+        }
       }
 
       // Velocity cap
