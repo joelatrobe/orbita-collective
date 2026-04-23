@@ -38,7 +38,7 @@ const models = [
 
 export default function HowWeWork() {
   return (
-    <section id="how-we-work" className="py-32 px-6 bg-dark">
+    <section id="how-we-work" className="py-32 px-6 bg-navy">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, transform: "translateY(30px)" }}
