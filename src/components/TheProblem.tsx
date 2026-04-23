@@ -14,7 +14,7 @@ const problems = [
   },
   {
     number: "03",
-    text: "Your teams know the problems. Nobody's given them the tools or mandate to solve them.",
+    text: "Everyone owns a piece of the experience. Nobody owns the whole thing.",
   },
 ];
 
