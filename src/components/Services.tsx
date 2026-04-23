@@ -5,7 +5,6 @@ import { motion, useInView, AnimatePresence } from "motion/react";
 import {
   Search,
   Lightbulb,
-  BarChart3,
   Users,
   Compass,
   Layers,
@@ -31,8 +30,7 @@ const serviceCategories = [
     kicker: "Understand behaviours, explore opportunities, design with confidence.",
     accent: false,
     services: [
-      { icon: Search, label: "User Research", description: "Deep qualitative and quantitative research to uncover what your users truly need. We conduct interviews, contextual enquiries, and usability tests that deliver actionable insights, not shelf-bound reports." },
-      { icon: BarChart3, label: "Market & Customer Insights", description: "We map the competitive landscape and analyse customer behaviour to identify opportunities your competitors have missed. Data-driven insights that inform product and service strategy." },
+      { icon: Search, label: "Research & Customer Insights", description: "Deep qualitative and quantitative research combined with competitive landscape analysis. We uncover what your users truly need and identify opportunities your competitors have missed — delivering actionable insights, not shelf-bound reports." },
       { icon: Layers, label: "Service & Experience Design", description: "End-to-end service design that maps every touchpoint of the customer journey. We design experiences that are coherent, delightful, and operationally feasible." },
       { icon: Compass, label: "Product Exploration", description: "Explore new product territories and adjacencies. We facilitate structured ideation grounded in user needs and business viability." },
       { icon: Target, label: "Vision Setting & Repositioning", description: "Define or redefine your product vision with clarity. We align teams around a shared north star that connects user value to business outcomes." },
@@ -52,7 +50,7 @@ const serviceCategories = [
       { icon: Compass, label: "Cross-functional Alignment", description: "Break down silos between product, design, engineering, and business teams. We facilitate workshops and create frameworks that keep everyone pulling in the same direction." },
       { icon: Search, label: "User-informed Service Strategy", description: "Service strategy grounded in real user needs, not assumptions. We help you build strategies that are evidence-based and designed to evolve with your customers." },
       { icon: Layers, label: "Design Ops & Tooling", description: "Set up the systems, processes, and tools that make great design repeatable. From design systems to research repositories: infrastructure for design at scale." },
-      { icon: BarChart3, label: "Business Casing", description: "Translate user-centred approaches into the language of business value. We build compelling cases that demonstrate ROI and secure buy-in from leadership." },
+      { icon: Users, label: "Employee Experience", description: "Great customer experiences start from the inside. We help organisations design employee journeys that build engagement, align culture, and create the conditions for teams to deliver at their best." },
       { icon: GraduationCap, label: "Upskilling & Training at Scale", description: "Empower your teams with design thinking, research methods, and CX skills. Practical, hands-on training tailored to your organisation's maturity." },
     ],
   },

@@ -298,8 +298,6 @@ export default function Hero() {
           className="mt-8 text-lg md:text-xl text-muted max-w-2xl mx-auto font-light leading-relaxed"
         >
           User research, service design, product innovation &amp; CX strategy. London &amp; Italy.
-          <br className="hidden sm:block" />
-          Usable tools your teams can own from day one.
         </motion.p>
 
         <motion.div
