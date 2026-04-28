@@ -25,8 +25,7 @@ const serviceCategories = [
   {
     title: "Product & Service Innovation",
     subtitle: "Reinventing by doing",
-    description:
-      "We work with the ones who don't just want to improve. They want to lead change from the inside-out.",
+    description: "",
     kicker: "Understand behaviours, explore opportunities, design with confidence.",
     accent: false,
     services: [
@@ -41,8 +40,7 @@ const serviceCategories = [
   {
     title: "CX Strategy & Facilitation",
     subtitle: "Reinventing how you work",
-    description:
-      "Everything we deliver, you can use. Not standalone research that gets forgotten on a shelf.",
+    description: "",
     kicker: "Strategy is just a framework if it doesn't stick. Turn ambition into results.",
     accent: true,
     services: [
@@ -159,9 +157,6 @@ export default function Services() {
                 <h3 className="font-sans font-semibold text-xl md:text-2xl text-dark mb-3">
                   {cat.title}
                 </h3>
-                <p className="text-muted text-sm leading-relaxed max-w-md">
-                  {cat.description}
-                </p>
                 {cat.kicker && (
                   <p className="font-serif italic text-dark/60 text-sm mt-3">
                     {cat.kicker}

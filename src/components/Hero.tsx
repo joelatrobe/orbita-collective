@@ -299,7 +299,7 @@ export default function Hero() {
           We reinvented consultancy
           <br />
           <span className="font-serif italic font-normal text-coral">
-            so you could reinvent
+            so you could reimagine
           </span>
           <br />
           your products & services.
@@ -313,7 +313,7 @@ export default function Hero() {
         >
           User research, service design, product innovation &amp; CX strategy.
           <br />
-          London &amp; Italy.
+          London &amp; Milan.
         </motion.p>
 
         <motion.div

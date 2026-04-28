@@ -20,7 +20,7 @@ const problems = [
 
 const stats = [
   { value: "18+", label: "Years of combined experience" },
-  { value: "30%", label: "Less than the average consultancy" },
+  { value: "30%", label: "More affordable than the average consultancy" },
   { value: "4 weeks", label: "To first results" },
   { value: "3", label: "Ways to collaborate" },
 ];

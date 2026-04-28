@@ -36,9 +36,11 @@ export default function Contact() {
             </span>
           </h2>
 
-          <p className="text-muted text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Building progress you can own, and carry forward. Let&apos;s start a
-            conversation about what&apos;s possible.
+          <p className="font-serif italic text-dark/55 text-base max-w-lg mx-auto mb-2 leading-relaxed">
+            We work with the ones who don&apos;t just want to improve. They want to lead change from the inside-out.
+          </p>
+          <p className="font-serif italic text-dark/55 text-base max-w-lg mx-auto mb-10 leading-relaxed">
+            Everything we deliver, you can use. Not standalone research that gets forgotten on a shelf.
           </p>
 
           <button
@@ -54,7 +56,7 @@ export default function Contact() {
 
           <p className="mt-8 flex items-center justify-center gap-2 text-dark/40 text-xs">
             <span>📍</span>
-            <span>London &amp; Italy</span>
+            <span>London &amp; Milan</span>
           </p>
 
           <div className="mt-4 flex items-center justify-center gap-6 text-xs text-dark/40">
