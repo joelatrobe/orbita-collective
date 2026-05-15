@@ -33,17 +33,89 @@ export const metadata: Metadata = {
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Service & Experience Design",
-  provider: {
-    "@type": "Organization",
-    name: "Orbita Collective",
-    url: "https://orbitacollective.com",
-  },
-  areaServed: ["London", "Milan"],
-  description:
-    "End-to-end service design consultancy that designs experiences which are coherent, delightful and operationally feasible. Every touchpoint, every time.",
-  url: "https://orbitacollective.com/services/service-design",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Service & Experience Design",
+      provider: {
+        "@type": "Organization",
+        name: "Orbita Collective",
+        url: "https://orbitacollective.com",
+      },
+      areaServed: ["London", "Milan"],
+      description:
+        "End-to-end service design consultancy that designs experiences which are coherent, delightful and operationally feasible. Every touchpoint, every time.",
+      url: "https://orbitacollective.com/services/service-design",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is service design?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Service design is the practice of designing the full experience of a service. Not just the interface, but every touchpoint a customer encounters, and every backstage process that enables it. It considers the customer's perspective and the organisation's operations together, so that what you design is both good for people and possible to deliver.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does a service design project take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most engagements run between six and twelve weeks. Smaller, focused projects. A single journey or a scoped prototype. Can move faster. Larger transformation programmes take longer, and we scope those individually. We will give you an honest timeline upfront.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do we need to be a large organisation?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. We work with scale-ups as well as large enterprises. The principles are the same; what changes is the scope. A scale-up with a specific service problem is just as well-suited to this work as a multinational rethinking a product line.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What makes Orbita different from other service design agencies?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We carry no unnecessary overhead, which means our fees are typically 30% more affordable than traditional consultancies. More importantly, we design with your team rather than for them. So everything we deliver is understood, owned, and usable from the moment it lands.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can you work with our internal team?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. And we prefer it that way. Cross-functional collaboration is central to how we work. Your product, operations, technology, and customer service teams all shape the experience your customers have. Keeping them in the room throughout the process means the output reflects reality, not a consultant's assumption.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://orbitacollective.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://orbitacollective.com/#services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Service Design",
+          item: "https://orbitacollective.com/services/service-design",
+        },
+      ],
+    },
+  ],
 };
 
 const phases = [

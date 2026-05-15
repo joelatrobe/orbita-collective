@@ -33,17 +33,89 @@ export const metadata: Metadata = {
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Customer Experience Strategy",
-  provider: {
-    "@type": "Organization",
-    name: "Orbita Collective",
-    url: "https://orbitacollective.com",
-  },
-  areaServed: ["London", "Milan"],
-  description:
-    "CX strategy consultancy that turns customer insight into business results. Strategies grounded in real user needs, built with the teams that implement them.",
-  url: "https://orbitacollective.com/services/cx-strategy",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Customer Experience Strategy",
+      provider: {
+        "@type": "Organization",
+        name: "Orbita Collective",
+        url: "https://orbitacollective.com",
+      },
+      areaServed: ["London", "Milan"],
+      description:
+        "CX strategy consultancy that turns customer insight into business results. Strategies grounded in real user needs, built with the teams that implement them.",
+      url: "https://orbitacollective.com/services/cx-strategy",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is customer experience strategy?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Customer experience strategy is a plan for the experience you want to deliver. What it should feel like at every point of contact, how it supports your business goals, and how you will measure whether it is working. A good CX strategy is specific enough to guide real decisions, not just a set of aspirational principles.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do you measure CX success?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We use a combination of quantitative metrics. NPS, CSAT, customer effort score, retention rate. And qualitative signals from research and feedback. No single number captures the full picture. We build measurement frameworks that give you a realistic view of the experience your customers are actually having.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does CX strategy take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most CX strategy engagements run between six and ten weeks. That includes audit, strategy development, and alignment workshops. If you need ongoing support through implementation, we can scope a longer engagement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you implement the strategy or just define it?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Both. Some clients need help defining the strategy and then take it from there. Others want us alongside during implementation. Embedded in the team, reviewing progress, adjusting the approach as they learn. We are flexible. Tell us what you need.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What does CX consultancy cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our fees are typically 30% more affordable than traditional consultancies. We price based on scope, not on overhead. Contact us with your brief and we will give you a clear, honest quote.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://orbitacollective.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://orbitacollective.com/#services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "CX Strategy",
+          item: "https://orbitacollective.com/services/cx-strategy",
+        },
+      ],
+    },
+  ],
 };
 
 const areas = [

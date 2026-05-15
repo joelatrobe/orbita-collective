@@ -33,17 +33,89 @@ export const metadata: Metadata = {
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Innovation Consultancy",
-  provider: {
-    "@type": "Organization",
-    name: "Orbita Collective",
-    url: "https://orbitacollective.com",
-  },
-  areaServed: ["London", "Milan"],
-  description:
-    "Innovation consultancy using design thinking to help organisations lead change from the inside-out. Grounded in real customer needs, not ideation for its own sake.",
-  url: "https://orbitacollective.com/services/innovation",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Innovation Consultancy",
+      provider: {
+        "@type": "Organization",
+        name: "Orbita Collective",
+        url: "https://orbitacollective.com",
+      },
+      areaServed: ["London", "Milan"],
+      description:
+        "Innovation consultancy using design thinking to help organisations lead change from the inside-out. Grounded in real customer needs, not ideation for its own sake.",
+      url: "https://orbitacollective.com/services/innovation",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is a design thinking consultancy?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Design thinking is a structured approach to solving complex problems. One that starts with deep understanding of the people affected, moves through collaborative ideation, and arrives at solutions that have been tested before they are built. A design thinking consultancy helps organisations apply this process, either to a specific challenge or as a capability they want to develop internally.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do innovation sprints work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A sprint is a focused, time-boxed engagement. Typically two to four weeks. Where we work intensively with your team on a defined challenge. The process moves from research through ideation to prototyping and testing. You finish with validated concepts and a clear view of which are worth pursuing, which need more work, and which should be dropped.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you work with startups?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our work is primarily with scale-ups and large organisations. That said, we are open to a conversation if you are a startup with a specific, well-defined challenge that suits this way of working. Contact us and we can assess whether the fit is right.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between innovation consultancy and strategy consultancy?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Traditional strategy consultancy analyses, advises, and recommends. Innovation consultancy does all of that. And then tests the ideas before committing to them. We build prototypes. We put concepts in front of real users. We learn what actually works rather than presenting a set of recommendations and leaving. The output is validated ideas, not a slide deck of options.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does an innovation sprint cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sprint costs vary based on complexity, team size, and duration. We scope each engagement individually. Contact us with your challenge and we will give you a clear, honest quote.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://orbitacollective.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://orbitacollective.com/#services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Innovation",
+          item: "https://orbitacollective.com/services/innovation",
+        },
+      ],
+    },
+  ],
 };
 
 const stages = [

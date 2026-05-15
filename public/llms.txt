@@ -1,40 +1,54 @@
 # Orbita Collective
 
-> Orbita Collective is a service design, CX strategy and innovation consultancy based in London, UK and Italy. Founded by Elisa Facondo and Joe La Trobe, we have 18+ years of combined experience delivering inspiring, impactful, and affordable Customer Experience strategy, user research, and design thinking — without the traditional consultancy premium.
+> Orbita Collective is a service design, CX strategy and innovation consultancy based in London, UK and Milan, Italy. Founded by Elisa Facondo and Joe La Trobe, we have 18+ years of combined experience delivering Customer Experience strategy, user research, service design and design thinking. We are 30% more affordable than the average consultancy, with no traditional premium or unnecessary overhead.
 
-We work with large organisations who need fresh thinking on complex problems. Our operational model is built to deliver the same quality as top-tier consultancies at a fraction of the cost. Everything we deliver is usable from day one.
+We work with large organisations who need fresh thinking on complex problems. Everything we deliver is usable from day one. Not standalone research that gets forgotten on a shelf.
 
-## Services
+## What we do
 
-### Product & Service Design
-- User Research: Qualitative and quantitative research to deeply understand customer needs, behaviours, and pain points
-- Market & Customer Insights: Data-driven analysis of market trends and customer segments
-- Service & Experience Design: End-to-end service design that transforms customer touchpoints and journeys
-- Product Exploration: Discovery and ideation to identify new product opportunities
-- Vision Setting & Repositioning: Strategic frameworks to define where your product or service should go next
-- AI Powered User Profiles: Next-generation customer personas built with AI and real behavioural data
-- Concept Testing & Validation: Rapid testing of ideas with real users before committing to development
+### Product & Service Innovation
+- Research & Customer Insights: Qualitative and quantitative research that uncovers what customers truly need, combined with competitive landscape analysis
+- Service & Experience Design: End-to-end service design that maps every touchpoint of the customer journey
+- Product Exploration: Structured ideation grounded in user needs and business viability to identify new product opportunities
+- Vision Setting & Repositioning: Define or redefine your product vision with clarity, aligning teams around a shared north star
+- AI Powered User Profiles: Behaviour-informed user profiles built with AI that go beyond demographics
+- Concept Testing & Validation: Prototype and test ideas with real users before committing to development
 
-### CX Strategy & Innovation
-- CX Strategy: Customer Experience strategy that aligns your organisation around the customer
-- Design Thinking: Human-centred innovation methodology applied to real business challenges
-- Customer Engagement Strategy: Long-term engagement strategies that build loyalty and advocacy
-- Facilitation: Expert-led workshops to align teams and generate actionable outcomes
-
-### Capability Building
-- Upskilling & Training: Hands-on training programmes that build internal CX and design thinking capability
+### CX Strategy & Facilitation
+- Customer Engagement Strategy: Build strategies that turn passive customers into active advocates
+- Cross-functional Alignment: Break down silos between product, design, engineering, and business teams
+- User-informed Service Strategy: Service strategy grounded in real user needs, not assumptions
+- Design Ops & Tooling: Systems, processes, and tools that make great design repeatable at scale
+- Employee Experience: Design employee journeys that build engagement and align culture
+- Upskilling & Training at Scale: Practical, hands-on design thinking and CX training tailored to your organisation
 
 ## About
 
-Orbita Collective was founded by Elisa Facondo (Customer Experience) and Joe La Trobe (Design & Innovation). Together they have worked across a wide range of industries including retail, financial services, healthcare, and technology.
+Orbita Collective was founded by Elisa Facondo and Joe La Trobe. Together they have 18+ years of experience across retail, financial services, healthcare, technology, and the public sector.
 
-- Elisa Facondo: Strategic thinker and passionate communicator. Email: elisa@orbitacollective.com
-- Joe La Trobe: Creative thinker and problem solver. Email: joe@orbitacollective.com
-- Locations: London, United Kingdom & Italy
+- Elisa Facondo: Co-Founder, Customer Experience. Strategic thinker and communicator. Email: elisa@orbitacollective.com
+- Joe La Trobe: Co-Founder, Design & Innovation. Creative thinker and problem solver. Email: joe@orbitacollective.com
+- Locations: London, United Kingdom and Milan, Italy
+- Pricing: Approximately 30% more affordable than traditional consultancies
+- Typical time to first results: 4 weeks
+
+## Why Orbita
+
+- We reinvented the consultancy model to deliver high-quality work without unnecessary overheads
+- We work with the ones who do not just want to improve. They want to lead change from the inside-out
+- Everyone owns a piece of the experience. Nobody owns the whole thing. We fix that
+- Everything we deliver, you can use from day one
+
+## Service pages
+
+- User Research & Customer Insights: https://orbitacollective.com/services/user-research
+- Service & Experience Design: https://orbitacollective.com/services/service-design
+- Customer Experience Strategy: https://orbitacollective.com/services/cx-strategy
+- Innovation Consultancy: https://orbitacollective.com/services/innovation
 
 ## Key pages
 
 - Homepage: https://orbitacollective.com
-- Privacy Policy: https://orbitacollective.com/privacy
-- Cookie Policy: https://orbitacollective.com/cookies
+- Privacy Policy: https://orbitacollective.com/privacy-policy
+- Cookie Policy: https://orbitacollective.com/cookies-policy
 - Sitemap: https://orbitacollective.com/sitemap.xml

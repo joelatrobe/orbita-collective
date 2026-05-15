@@ -33,17 +33,89 @@ export const metadata: Metadata = {
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "User Research & Customer Insights",
-  provider: {
-    "@type": "Organization",
-    name: "Orbita Collective",
-    url: "https://orbitacollective.com",
-  },
-  areaServed: ["London", "Milan"],
-  description:
-    "Expert user research and customer insights that uncover what your customers truly need. Qualitative and quantitative research without the shelf-bound report.",
-  url: "https://orbitacollective.com/services/user-research",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "User Research & Customer Insights",
+      provider: {
+        "@type": "Organization",
+        name: "Orbita Collective",
+        url: "https://orbitacollective.com",
+      },
+      areaServed: ["London", "Milan"],
+      description:
+        "Expert user research and customer insights that uncover what your customers truly need. Qualitative and quantitative research without the shelf-bound report.",
+      url: "https://orbitacollective.com/services/user-research",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How long does a user research project take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most projects run between four and eight weeks, depending on the number of research participants, methods used, and how much synthesis and reporting is required. We scope each project individually. Contact us and we will give you a realistic timeline for your specific question.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you recruit participants or do we?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We handle participant recruitment end to end. That includes screening, scheduling, incentives, and consent. If you already have a panel or customer list you would like us to draw from, we can work with that too.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What industries do you work in?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We have worked across retail, financial services, healthcare, technology and the public sector. Good user research practice is consistent across industries. What changes is the context, the regulatory constraints, and the type of participant. We adapt accordingly.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How is this different from a survey?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Surveys tell you what. Research tells you why. A survey can confirm that a behaviour exists; it cannot explain the reasoning behind it, the emotion attached to it, or the workarounds your customers have invented. We use depth interviews, observation, and contextual inquiry to get to the layer that surveys cannot reach.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does user research cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our fees are typically 30% more affordable than traditional consultancies, because we carry no unnecessary overhead. Every engagement is scoped individually. Contact us with your brief and we will come back with a clear, itemised quote.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://orbitacollective.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://orbitacollective.com/#services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "User Research",
+          item: "https://orbitacollective.com/services/user-research",
+        },
+      ],
+    },
+  ],
 };
 
 const steps = [
