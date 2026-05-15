@@ -10,7 +10,7 @@ import { CheckCircle2 } from "lucide-react";
 export const metadata: Metadata = {
   title: "User Research Agency London & Milan | Orbita Collective",
   description:
-    "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need — without the shelf-bound report. 18+ years experience.",
+    "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need. Without the shelf-bound report. 18+ years experience.",
   keywords: [
     "user research agency London",
     "UX research consultancy",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "User Research Agency London & Milan | Orbita Collective",
     description:
-      "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need — without the shelf-bound report.",
+      "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need. Without the shelf-bound report.",
     url: "https://orbitacollective.com/services/user-research",
     siteName: "Orbita Collective",
     type: "website",
@@ -42,7 +42,7 @@ const schemaData = {
   },
   areaServed: ["London", "Milan"],
   description:
-    "Expert user research and customer insights that uncover what your customers truly need — qualitative and quantitative research without the shelf-bound report.",
+    "Expert user research and customer insights that uncover what your customers truly need. Qualitative and quantitative research without the shelf-bound report.",
   url: "https://orbitacollective.com/services/user-research",
 };
 
@@ -57,7 +57,7 @@ const steps = [
     number: "02",
     title: "Fieldwork",
     description:
-      "Depth interviews, contextual observation, usability sessions, or diary studies — we choose the method that fits the question, not the one that's easiest to schedule.",
+      "Depth interviews, contextual observation, usability sessions, or diary studies. We choose the method that fits the question, not the one that's easiest to schedule.",
   },
   {
     number: "03",
@@ -84,7 +84,7 @@ const deliverables = [
 const faqs = [
   {
     q: "How long does a user research project take?",
-    a: "Most projects run between four and eight weeks, depending on the number of research participants, methods used, and how much synthesis and reporting is required. We scope each project individually — contact us and we will give you a realistic timeline for your specific question.",
+    a: "Most projects run between four and eight weeks, depending on the number of research participants, methods used, and how much synthesis and reporting is required. We scope each project individually. Contact us and we will give you a realistic timeline for your specific question.",
   },
   {
     q: "Do you recruit participants or do we?",
@@ -92,7 +92,7 @@ const faqs = [
   },
   {
     q: "What industries do you work in?",
-    a: "We have worked across retail, financial services, healthcare, technology and the public sector. Good user research practice is consistent across industries — what changes is the context, the regulatory constraints, and the type of participant. We adapt accordingly.",
+    a: "We have worked across retail, financial services, healthcare, technology and the public sector. Good user research practice is consistent across industries. What changes is the context, the regulatory constraints, and the type of participant. We adapt accordingly.",
   },
   {
     q: "How is this different from a survey?",
@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: "How much does user research cost?",
-    a: "Our fees are typically 30% more affordable than traditional consultancies, because we carry no unnecessary overhead. Every engagement is scoped individually — contact us with your brief and we will come back with a clear, itemised quote.",
+    a: "Our fees are typically 30% more affordable than traditional consultancies, because we carry no unnecessary overhead. Every engagement is scoped individually. Contact us with your brief and we will come back with a clear, itemised quote.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function UserResearchPage() {
           label="User Research"
           h1Line1="User Research &"
           h1Accent="Customer Insights"
-          subtitle="Most research ends up in a deck that no one opens. Ours is built to be used from the moment it lands. We work with organisations in London and Milan to understand what customers actually do, think, and need — so you can build things that work."
+          subtitle="Most research ends up in a deck that no one opens. Ours is built to be used from the moment it lands. We work with organisations in London and Milan to understand what customers actually do, think, and need. So you can build things that work."
           backHref="/#services"
         />
 

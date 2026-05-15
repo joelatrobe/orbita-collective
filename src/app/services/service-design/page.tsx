@@ -42,7 +42,7 @@ const schemaData = {
   },
   areaServed: ["London", "Milan"],
   description:
-    "End-to-end service design consultancy that designs experiences which are coherent, delightful and operationally feasible — every touchpoint, every time.",
+    "End-to-end service design consultancy that designs experiences which are coherent, delightful and operationally feasible. Every touchpoint, every time.",
   url: "https://orbitacollective.com/services/service-design",
 };
 
@@ -57,7 +57,7 @@ const phases = [
     number: "02",
     title: "Mapping & Analysis",
     description:
-      "Current-state service blueprints and journey maps reveal where the experience breaks down — and why. We identify root causes, not just symptoms.",
+      "Current-state service blueprints and journey maps reveal where the experience breaks down. And why. We identify root causes, not just symptoms.",
   },
   {
     number: "03",
@@ -84,11 +84,11 @@ const deliverables = [
 const faqs = [
   {
     q: "What is service design?",
-    a: "Service design is the practice of designing the full experience of a service — not just the interface, but every touchpoint a customer encounters, and every backstage process that enables it. It considers the customer's perspective and the organisation's operations together, so that what you design is both good for people and possible to deliver.",
+    a: "Service design is the practice of designing the full experience of a service. Not just the interface, but every touchpoint a customer encounters, and every backstage process that enables it. It considers the customer's perspective and the organisation's operations together, so that what you design is both good for people and possible to deliver.",
   },
   {
     q: "How long does a service design project take?",
-    a: "Most engagements run between six and twelve weeks. Smaller, focused projects — a single journey or a scoped prototype — can move faster. Larger transformation programmes take longer, and we scope those individually. We will give you an honest timeline upfront.",
+    a: "Most engagements run between six and twelve weeks. Smaller, focused projects. A single journey or a scoped prototype. Can move faster. Larger transformation programmes take longer, and we scope those individually. We will give you an honest timeline upfront.",
   },
   {
     q: "Do we need to be a large organisation?",
@@ -96,11 +96,11 @@ const faqs = [
   },
   {
     q: "What makes Orbita different from other service design agencies?",
-    a: "We carry no unnecessary overhead, which means our fees are typically 30% more affordable than traditional consultancies. More importantly, we design with your team rather than for them — so everything we deliver is understood, owned, and usable from the moment it lands.",
+    a: "We carry no unnecessary overhead, which means our fees are typically 30% more affordable than traditional consultancies. More importantly, we design with your team rather than for them. So everything we deliver is understood, owned, and usable from the moment it lands.",
   },
   {
     q: "Can you work with our internal team?",
-    a: "Yes — and we prefer it that way. Cross-functional collaboration is central to how we work. Your product, operations, technology, and customer service teams all shape the experience your customers have. Keeping them in the room throughout the process means the output reflects reality, not a consultant's assumption.",
+    a: "Yes. And we prefer it that way. Cross-functional collaboration is central to how we work. Your product, operations, technology, and customer service teams all shape the experience your customers have. Keeping them in the room throughout the process means the output reflects reality, not a consultant's assumption.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function ServiceDesignPage() {
           label="Service Design"
           h1Line1="Service &"
           h1Accent="Experience Design"
-          subtitle="There is almost always a gap between the experience an organisation intends and the one customers actually have. Service design is how you close it — deliberately, and across every part of the service, not just the parts that are easy to see."
+          subtitle="There is almost always a gap between the experience an organisation intends and the one customers actually have. Service design is how you close it. Deliberately, and across every part of the service, not just the parts that are easy to see."
           backHref="/#services"
         />
 
@@ -147,8 +147,8 @@ export default function ServiceDesignPage() {
               </h2>
               <div className="space-y-5 text-dark/75 text-base leading-relaxed">
                 <p>
-                  Organisations invest heavily in individual channels — a new app, a
-                  redesigned contact centre script, a refreshed website — without
+                  Organisations invest heavily in individual channels. A new app, a
+                  redesigned contact centre script, a refreshed website. Without
                   stepping back to look at the service as a whole. Customers, of
                   course, do not experience channels in isolation. They move between
                   them, carry frustrations from one into another, and form an overall
@@ -164,7 +164,7 @@ export default function ServiceDesignPage() {
                   It means prototyping before building, testing before launching, and
                   measuring what actually matters to customers rather than what is easy
                   to count. The result is a service that is coherent from first contact
-                  to resolution — and one your team knows how to maintain.
+                  to resolution. And one your team knows how to maintain.
                 </p>
               </div>
             </div>

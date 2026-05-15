@@ -42,7 +42,7 @@ const schemaData = {
   },
   areaServed: ["London", "Milan"],
   description:
-    "Innovation consultancy using design thinking to help organisations lead change from the inside-out — grounded in real customer needs, not ideation for its own sake.",
+    "Innovation consultancy using design thinking to help organisations lead change from the inside-out. Grounded in real customer needs, not ideation for its own sake.",
   url: "https://orbitacollective.com/services/innovation",
 };
 
@@ -51,7 +51,7 @@ const stages = [
     number: "01",
     title: "Empathise",
     description:
-      "We start with deep customer research. Real conversations, observation, and context — not assumptions or desk research. You cannot innovate meaningfully without first understanding the problem from the inside.",
+      "We start with deep customer research. Real conversations, observation, and context. Not assumptions or desk research. You cannot innovate meaningfully without first understanding the problem from the inside.",
   },
   {
     number: "02",
@@ -63,7 +63,7 @@ const stages = [
     number: "03",
     title: "Ideate",
     description:
-      "Structured ideation with your team — facilitated to move past the obvious and into the genuinely interesting. We use a range of methods to generate ideas, then narrow quickly to the ones worth developing.",
+      "Structured ideation with your team. Facilitated to move past the obvious and into the genuinely interesting. We use a range of methods to generate ideas, then narrow quickly to the ones worth developing.",
   },
   {
     number: "04",
@@ -75,7 +75,7 @@ const stages = [
     number: "05",
     title: "Test",
     description:
-      "Prototypes go in front of real users. We learn what works, what does not, and why. Then we iterate. By the end of a sprint, you have validated ideas with evidence — not just concepts that felt good in the room.",
+      "Prototypes go in front of real users. We learn what works, what does not, and why. Then we iterate. By the end of a sprint, you have validated ideas with evidence. Not just concepts that felt good in the room.",
   },
 ];
 
@@ -90,11 +90,11 @@ const deliverables = [
 const faqs = [
   {
     q: "What is a design thinking consultancy?",
-    a: "Design thinking is a structured approach to solving complex problems — one that starts with deep understanding of the people affected, moves through collaborative ideation, and arrives at solutions that have been tested before they are built. A design thinking consultancy helps organisations apply this process, either to a specific challenge or as a capability they want to develop internally.",
+    a: "Design thinking is a structured approach to solving complex problems. One that starts with deep understanding of the people affected, moves through collaborative ideation, and arrives at solutions that have been tested before they are built. A design thinking consultancy helps organisations apply this process, either to a specific challenge or as a capability they want to develop internally.",
   },
   {
     q: "How do innovation sprints work?",
-    a: "A sprint is a focused, time-boxed engagement — typically two to four weeks — where we work intensively with your team on a defined challenge. The process moves from research through ideation to prototyping and testing. You finish with validated concepts and a clear view of which are worth pursuing, which need more work, and which should be dropped.",
+    a: "A sprint is a focused, time-boxed engagement. Typically two to four weeks. Where we work intensively with your team on a defined challenge. The process moves from research through ideation to prototyping and testing. You finish with validated concepts and a clear view of which are worth pursuing, which need more work, and which should be dropped.",
   },
   {
     q: "Do you work with startups?",
@@ -102,11 +102,11 @@ const faqs = [
   },
   {
     q: "What is the difference between innovation consultancy and regular strategy consultancy?",
-    a: "Traditional strategy consultancy analyses, advises, and recommends. Innovation consultancy does all of that — and then tests the ideas before committing to them. We build prototypes. We put concepts in front of real users. We learn what actually works rather than presenting a set of recommendations and leaving. The output is validated ideas, not a slide deck of options.",
+    a: "Traditional strategy consultancy analyses, advises, and recommends. Innovation consultancy does all of that. And then tests the ideas before committing to them. We build prototypes. We put concepts in front of real users. We learn what actually works rather than presenting a set of recommendations and leaving. The output is validated ideas, not a slide deck of options.",
   },
   {
     q: "How much does an innovation sprint cost?",
-    a: "Sprint costs vary based on complexity, team size, and duration. We scope each engagement individually — contact us with your challenge and we will give you a clear, honest quote.",
+    a: "Sprint costs vary based on complexity, team size, and duration. We scope each engagement individually. Contact us with your challenge and we will give you a clear, honest quote.",
   },
 ];
 
@@ -137,7 +137,7 @@ export default function InnovationPage() {
           label="Innovation"
           h1Line1="Innovation"
           h1Accent="Consultancy"
-          subtitle="Innovation that works looks less like a brainstorming session and more like a structured process — one that starts with real customer problems and ends with ideas you have actually tested. We help organisations in London and Milan lead change from the inside-out."
+          subtitle="Innovation that works looks less like a brainstorming session and more like a structured process. One that starts with real customer problems and ends with ideas you have actually tested. We help organisations in London and Milan lead change from the inside-out."
           backHref="/#services"
         />
 
@@ -155,7 +155,7 @@ export default function InnovationPage() {
                 <p>
                   Innovation theatre is expensive and easy to spot in hindsight. A
                   two-day off-site, a wall covered in sticky notes, a shortlist of
-                  exciting-sounding concepts — and three months later, none of them
+                  exciting-sounding concepts. And three months later, none of them
                   have moved because no one agreed on which problem they were actually
                   solving. The ideas were generated without enough understanding of
                   the customer. They were never tested with anyone outside the room.
@@ -168,7 +168,7 @@ export default function InnovationPage() {
                   spends time on the problem before it touches solutions. It builds
                   small, cheap prototypes that answer specific questions. It puts
                   concepts in front of real users before a line of code is written or
-                  a business case is submitted. This is design thinking in practice —
+                  a business case is submitted. This is design thinking in practice , 
                   not as a methodology to be evangelised, but as a discipline that
                   makes the difference between an idea that becomes a product and an
                   idea that becomes a slide in a deck about last year's work.
@@ -178,7 +178,7 @@ export default function InnovationPage() {
           </div>
         </section>
 
-        {/* How we work — 5 stages */}
+        {/* How we work ,  5 stages */}
         <section className="bg-blue-accent/10 py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <span className="text-coral text-xs font-medium uppercase tracking-widest">

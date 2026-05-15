@@ -10,7 +10,7 @@ import { CheckCircle2 } from "lucide-react";
 export const metadata: Metadata = {
   title: "Customer Experience Strategy Consultancy | London & Milan | Orbita Collective",
   description:
-    "CX strategy consultancy that turns customer insight into business results. We build strategies that stick — grounded in real user needs, not assumptions. London & Milan.",
+    "CX strategy consultancy that turns customer insight into business results. We build strategies that stick. Grounded in real user needs, not assumptions. London & Milan.",
   keywords: [
     "customer experience strategy consultancy",
     "CX strategy agency London",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Customer Experience Strategy Consultancy | London & Milan | Orbita Collective",
     description:
-      "CX strategy consultancy that turns customer insight into business results. We build strategies that stick — grounded in real user needs, not assumptions.",
+      "CX strategy consultancy that turns customer insight into business results. We build strategies that stick. Grounded in real user needs, not assumptions.",
     url: "https://orbitacollective.com/services/cx-strategy",
     siteName: "Orbita Collective",
     type: "website",
@@ -51,7 +51,7 @@ const areas = [
     number: "01",
     title: "CX Audit & Diagnosis",
     description:
-      "Before you can set a direction, you need an honest picture of where you are. We audit your current customer experience across all key touchpoints — qualitative and quantitative — and identify the gaps that matter most.",
+      "Before you can set a direction, you need an honest picture of where you are. We audit your current customer experience across all key touchpoints. Qualitative and quantitative. And identify the gaps that matter most.",
   },
   {
     number: "02",
@@ -69,7 +69,7 @@ const areas = [
     number: "04",
     title: "Measurement & KPIs",
     description:
-      "We help you define the right metrics — ones that reflect actual customer experience, not just what is easy to track. And we build the measurement framework that keeps the strategy honest over time.",
+      "We help you define the right metrics. Ones that reflect actual customer experience, not just what is easy to track. And we build the measurement framework that keeps the strategy honest over time.",
   },
 ];
 
@@ -83,11 +83,11 @@ const deliverables = [
 const faqs = [
   {
     q: "What is customer experience strategy?",
-    a: "Customer experience strategy is a plan for the experience you want to deliver — what it should feel like at every point of contact, how it supports your business goals, and how you will measure whether it is working. A good CX strategy is specific enough to guide real decisions, not just a set of aspirational principles.",
+    a: "Customer experience strategy is a plan for the experience you want to deliver. What it should feel like at every point of contact, how it supports your business goals, and how you will measure whether it is working. A good CX strategy is specific enough to guide real decisions, not just a set of aspirational principles.",
   },
   {
     q: "How do you measure CX success?",
-    a: "We use a combination of quantitative metrics — NPS, CSAT, customer effort score, retention rate — and qualitative signals from research and feedback. No single number captures the full picture. We build measurement frameworks that give you a realistic view of the experience your customers are actually having.",
+    a: "We use a combination of quantitative metrics. NPS, CSAT, customer effort score, retention rate. And qualitative signals from research and feedback. No single number captures the full picture. We build measurement frameworks that give you a realistic view of the experience your customers are actually having.",
   },
   {
     q: "How long does CX strategy take?",
@@ -95,7 +95,7 @@ const faqs = [
   },
   {
     q: "Do you implement the strategy or just define it?",
-    a: "Both. Some clients need help defining the strategy and then take it from there. Others want us alongside during implementation — embedded in the team, reviewing progress, adjusting the approach as they learn. We are flexible. Tell us what you need.",
+    a: "Both. Some clients need help defining the strategy and then take it from there. Others want us alongside during implementation. Embedded in the team, reviewing progress, adjusting the approach as they learn. We are flexible. Tell us what you need.",
   },
   {
     q: "What does CX consultancy cost?",
@@ -130,7 +130,7 @@ export default function CXStrategyPage() {
           label="CX Strategy"
           h1Line1="Customer Experience"
           h1Accent="Strategy"
-          subtitle="Strategy only works if the people responsible for delivery understand it and believe in it. We build CX strategies with your teams — grounded in real customer insight, designed to be implemented, not filed."
+          subtitle="Strategy only works if the people responsible for delivery understand it and believe in it. We build CX strategies with your teams. Grounded in real customer insight, designed to be implemented, not filed."
           backHref="/#services"
         />
 
@@ -156,7 +156,7 @@ export default function CXStrategyPage() {
                 </p>
                 <p>
                   We take a different approach. We build CX strategies with the teams
-                  that implement them — not because collaboration is a nice-to-have,
+                  that implement them. Not because collaboration is a nice-to-have,
                   but because that is the only way the strategy survives contact with
                   the organisation. We start from real customer evidence, not
                   assumptions. We pressure-test the strategy against operational
