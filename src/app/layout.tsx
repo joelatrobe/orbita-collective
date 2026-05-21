@@ -19,7 +19,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://orbitacollective.com"),
   title: {
-    default: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
+    default: "Service Design, Innovation & CX Consultancy | London & Milan | Orbita Collective",
     template: "%s | Orbita Collective",
   },
   description:
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "customer experience strategy",
     "service design agency London",
     "design consultancy London",
-    "CX consultancy Italy",
-    "service design Italy",
+    "CX consultancy Milan",
+    "service design Milan",
     "UX consultancy",
     "customer journey mapping",
     "design thinking agency",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://orbitacollective.com",
     siteName: "Orbita Collective",
-    title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
+    title: "Service Design, Innovation & CX Consultancy | London & Milan | Orbita Collective",
     description:
       "CX and service design consultancy with 18+ years of experience. Inspiring, impactful, and affordable. No traditional consultancy premium.",
     images: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Service Design, Innovation & CX Consultancy London + Italy | Orbita Collective",
+    title: "Service Design, Innovation & CX Consultancy | London & Milan | Orbita Collective",
     description:
       "18+ years of CX, service design and design thinking. Inspiring, impactful and affordable. No consultancy premium.",
     images: ["/og-image.png"],
@@ -138,7 +138,7 @@ const structuredData = {
       priceRange: "££",
       areaServed: [
         { "@type": "City", name: "London", containedInPlace: { "@type": "Country", name: "United Kingdom" } },
-        { "@type": "Country", name: "Italy" },
+        { "@type": "City", name: "Milan", containedInPlace: { "@type": "Country", name: "Italy" } },
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
