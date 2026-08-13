@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://www.orbitacollective.com/faq",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://www.orbitacollective.com/privacy-policy",
       lastModified: new Date(),
       changeFrequency: "yearly",

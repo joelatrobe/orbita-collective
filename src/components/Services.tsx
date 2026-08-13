@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
-import { servicePages, serviceCardLinks } from "@/lib/services";
+import { serviceCardLinks } from "@/lib/services";
 import {
   ArrowRight,
   Search,
@@ -156,38 +156,6 @@ export default function Services() {
             and lets go of the baggage.
           </h2>
         </motion.div>
-
-        {/* Core service pages — primary internal links into the deep pages */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-          {servicePages.map((page, i) => (
-            <motion.div
-              key={page.slug}
-              initial={{ opacity: 0, transform: "translateY(20px)" }}
-              whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.23, 1, 0.32, 1] }}
-            >
-              <Link
-                href={page.slug}
-                className="group hover-lift block h-full rounded-2xl border border-dark/[0.07] p-6 transition-colors duration-200 hover:border-coral/40 hover:bg-dark/[0.02]"
-              >
-                <h3 className="font-sans font-semibold text-base text-dark mb-2">
-                  {page.anchor}
-                </h3>
-                <p className="text-muted text-sm leading-relaxed mb-4">
-                  {page.summary}
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-coral text-xs font-medium">
-                  Learn more
-                  <ArrowRight
-                    size={12}
-                    className="transition-transform duration-200 group-hover:translate-x-0.5"
-                  />
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           {serviceCategories.map((cat, catIndex) => (

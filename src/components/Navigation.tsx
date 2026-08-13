@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useBooking } from "./BookingProvider";
-import { servicePages } from "@/lib/services";
 
 const navLinks = [
   { label: "Services", href: "/#services" },
@@ -17,7 +16,6 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const { open: openBooking } = useBooking();
 
   useEffect(() => {
@@ -64,65 +62,17 @@ export default function Navigation() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) =>
-              link.label === "Services" ? (
-                <div
-                  key={link.href}
-                  className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                >
-                  <Link
-                    href={link.href}
-                    onFocus={() => setServicesOpen(true)}
-                    className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 cursor-pointer hover:text-coral ${
-                      scrolled ? "text-cream/80" : "text-dark/70"
-                    }`}
-                  >
-                    {link.label}
-                    <ChevronDown
-                      size={13}
-                      className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                    />
-                  </Link>
-
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, transform: "translateY(-6px)" }}
-                        animate={{ opacity: 1, transform: "translateY(0px)" }}
-                        exit={{ opacity: 0, transform: "translateY(-6px)" }}
-                        transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-                        className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-64"
-                      >
-                        <div className="bg-cream rounded-2xl shadow-xl ring-1 ring-dark/[0.06] p-2">
-                          {servicePages.map((page) => (
-                            <Link
-                              key={page.slug}
-                              href={page.slug}
-                              onClick={() => setServicesOpen(false)}
-                              className="block px-4 py-2.5 rounded-xl text-sm text-dark/75 cursor-pointer transition-colors duration-150 hover:bg-dark/[0.04] hover:text-coral"
-                            >
-                              {page.anchor}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 cursor-pointer hover:text-coral ${
-                    scrolled ? "text-cream/80" : "text-dark/70"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors duration-200 cursor-pointer hover:text-coral ${
+                  scrolled ? "text-cream/80" : "text-dark/70"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <button
               onClick={openBooking}
               className="bg-coral text-white text-sm font-medium px-5 py-2 rounded-full cursor-pointer hover:bg-coral/90 transition-colors duration-200"
@@ -171,7 +121,6 @@ export default function Navigation() {
                   initial={{ opacity: 0, transform: "translateY(15px)" }}
                   animate={{ opacity: 1, transform: "translateY(0px)" }}
                   transition={{ delay: i * 0.07, ease: [0.23, 1, 0.32, 1] }}
-                  className="flex flex-col items-center gap-3"
                 >
                   <Link
                     href={link.href}
@@ -180,21 +129,6 @@ export default function Navigation() {
                   >
                     {link.label}
                   </Link>
-
-                  {link.label === "Services" && (
-                    <div className="flex flex-col items-center gap-2.5 pt-1">
-                      {servicePages.map((page) => (
-                        <Link
-                          key={page.slug}
-                          href={page.slug}
-                          onClick={() => setMobileOpen(false)}
-                          className="text-cream/50 text-sm cursor-pointer hover:text-coral transition-colors"
-                        >
-                          {page.anchor}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
                 </motion.div>
               ))}
               <motion.button

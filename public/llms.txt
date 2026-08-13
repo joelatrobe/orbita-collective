@@ -42,6 +42,9 @@ Orbita Collective was founded by Elisa Facondo and Joe La Trobe. Together they h
 
 ## Frequently asked questions
 
+Full FAQ page: https://www.orbitacollective.com/faq
+
+
 **What does Orbita Collective actually do?** A service design, customer experience and innovation consultancy working with organisations in London and Milan. In practice: user research, service and experience design, CX strategy, and structured innovation work. Everything delivered is built to be used from day one.
 
 **How much does a project cost?** Roughly 30 per cent more affordable than a traditional consultancy, because the operating model was reinvented rather than the rate card. There is no fixed price list. Each project is scoped to the problem, with a clear figure and timeline agreed before work starts.
@@ -66,6 +69,7 @@ Orbita Collective was founded by Elisa Facondo and Joe La Trobe. Together they h
 ## Key pages
 
 - Homepage: https://www.orbitacollective.com
+- Frequently Asked Questions: https://www.orbitacollective.com/faq
 - Privacy Policy: https://www.orbitacollective.com/privacy-policy
 - Cookie Policy: https://www.orbitacollective.com/cookies-policy
 - Sitemap: https://www.orbitacollective.com/sitemap.xml
