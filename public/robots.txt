@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://orbitacollective.com/sitemap.xml
+Sitemap: https://www.orbitacollective.com/sitemap.xml
 
 # AI crawlers
 User-agent: GPTBot
@@ -24,4 +24,4 @@ User-agent: Googlebot-Extended
 Allow: /
 
 # llms.txt — structured content for AI systems
-# https://orbitacollective.com/llms.txt
+# https://www.orbitacollective.com/llms.txt

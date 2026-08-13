@@ -8,7 +8,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "User Research Agency London & Milan | Orbita Collective",
+  title: "User Research Agency London & Milan",
   description:
     "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need. Without the shelf-bound report. 18+ years experience.",
   keywords: [
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     title: "User Research Agency London & Milan | Orbita Collective",
     description:
       "Expert user research and customer insights in London and Milan. Qualitative and quantitative research that uncovers what your customers truly need. Without the shelf-bound report.",
-    url: "https://orbitacollective.com/services/user-research",
+    url: "https://www.orbitacollective.com/services/user-research",
     siteName: "Orbita Collective",
     type: "website",
   },
   alternates: {
-    canonical: "https://orbitacollective.com/services/user-research",
+    canonical: "https://www.orbitacollective.com/services/user-research",
   },
 };
 
@@ -40,12 +40,12 @@ const schemaData = {
       provider: {
         "@type": "Organization",
         name: "Orbita Collective",
-        url: "https://orbitacollective.com",
+        url: "https://www.orbitacollective.com",
       },
       areaServed: ["London", "Milan"],
       description:
         "Expert user research and customer insights that uncover what your customers truly need. Qualitative and quantitative research without the shelf-bound report.",
-      url: "https://orbitacollective.com/services/user-research",
+      url: "https://www.orbitacollective.com/services/user-research",
     },
     {
       "@type": "FAQPage",
@@ -99,19 +99,19 @@ const schemaData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://orbitacollective.com",
+          item: "https://www.orbitacollective.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: "https://orbitacollective.com/#services",
+          item: "https://www.orbitacollective.com/#services",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "User Research",
-          item: "https://orbitacollective.com/services/user-research",
+          item: "https://www.orbitacollective.com/services/user-research",
         },
       ],
     },
@@ -318,6 +318,7 @@ export default function UserResearchPage() {
         <ServiceCTA
           heading="Ready to understand your customers?"
           subtext="Tell us about your research question and we will scope a project that gives you real answers."
+          currentSlug="/services/user-research"
         />
       </main>
       <Footer />

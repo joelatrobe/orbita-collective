@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Lora } from "next/font/google";
 import BookingProvider from "@/components/BookingProvider";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -17,7 +18,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://orbitacollective.com"),
+  metadataBase: new URL("https://www.orbitacollective.com"),
   title: {
     default: "Service Design, Innovation & CX Consultancy | London & Milan | Orbita Collective",
     template: "%s | Orbita Collective",
@@ -45,8 +46,8 @@ export const metadata: Metadata = {
     "Joe La Trobe",
   ],
   authors: [
-    { name: "Elisa Facondo", url: "https://orbitacollective.com" },
-    { name: "Joe La Trobe", url: "https://orbitacollective.com" },
+    { name: "Elisa Facondo", url: "https://www.orbitacollective.com" },
+    { name: "Joe La Trobe", url: "https://www.orbitacollective.com" },
   ],
   creator: "Orbita Collective",
   icons: {
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://orbitacollective.com",
+    url: "https://www.orbitacollective.com",
     siteName: "Orbita Collective",
     title: "Service Design, Innovation & CX Consultancy | London & Milan | Orbita Collective",
     description:
@@ -90,7 +91,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://orbitacollective.com",
+    canonical: "https://www.orbitacollective.com",
   },
 };
 
@@ -100,39 +101,57 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://orbitacollective.com/#organization",
+      "@id": "https://www.orbitacollective.com/#organization",
       name: "Orbita Collective",
-      url: "https://orbitacollective.com",
+      url: "https://www.orbitacollective.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://orbitacollective.com/logos/logo-dark.png",
+        url: "https://www.orbitacollective.com/logos/logo-dark.png",
       },
       description:
         "Customer Experience and Service Design consultancy with 18+ years of experience delivering inspiring, impactful, and affordable CX strategy, user research, and design thinking.",
       email: "elisa@orbitacollective.com",
-      sameAs: [],
+      sameAs: ["https://www.linkedin.com/company/orbita-collective/"],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "Customer Experience enquiries",
+          name: "Elisa Facondo",
+          email: "elisa@orbitacollective.com",
+          areaServed: ["GB", "IT"],
+          availableLanguage: ["en", "it"],
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "Design & Innovation enquiries",
+          name: "Joe La Trobe",
+          email: "joe@orbitacollective.com",
+          areaServed: ["GB", "IT"],
+          availableLanguage: ["en"],
+        },
+      ],
       founders: [
         {
           "@type": "Person",
           name: "Elisa Facondo",
           jobTitle: "Co-Founder, Customer Experience",
           email: "elisa@orbitacollective.com",
-          worksFor: { "@id": "https://orbitacollective.com/#organization" },
+          worksFor: { "@id": "https://www.orbitacollective.com/#organization" },
         },
         {
           "@type": "Person",
           name: "Joe La Trobe",
           jobTitle: "Co-Founder, Design & Innovation",
           email: "joe@orbitacollective.com",
-          worksFor: { "@id": "https://orbitacollective.com/#organization" },
+          worksFor: { "@id": "https://www.orbitacollective.com/#organization" },
         },
       ],
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://orbitacollective.com/#service",
+      "@id": "https://www.orbitacollective.com/#service",
       name: "Orbita Collective",
-      url: "https://orbitacollective.com",
+      url: "https://www.orbitacollective.com",
       description:
         "CX strategy, service design, user research, and design thinking consultancy.",
       priceRange: "££",
@@ -155,10 +174,10 @@ const structuredData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://orbitacollective.com/#website",
-      url: "https://orbitacollective.com",
+      "@id": "https://www.orbitacollective.com/#website",
+      url: "https://www.orbitacollective.com",
       name: "Orbita Collective",
-      publisher: { "@id": "https://orbitacollective.com/#organization" },
+      publisher: { "@id": "https://www.orbitacollective.com/#organization" },
     },
   ],
 };
@@ -193,7 +212,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <BookingProvider>{children}</BookingProvider>
+        <BookingProvider>
+          {children}
+          <StickyMobileCTA />
+        </BookingProvider>
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Innovation Consultancy London & Milan | Orbita Collective",
+  title: "Innovation Consultancy London & Milan",
   description:
     "Innovation consultancy that helps organisations lead change from the inside-out. Design thinking, product exploration and vision setting in London and Milan.",
   keywords: [
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     title: "Innovation Consultancy London & Milan | Orbita Collective",
     description:
       "Innovation consultancy that helps organisations lead change from the inside-out. Design thinking, product exploration and vision setting in London and Milan.",
-    url: "https://orbitacollective.com/services/innovation",
+    url: "https://www.orbitacollective.com/services/innovation",
     siteName: "Orbita Collective",
     type: "website",
   },
   alternates: {
-    canonical: "https://orbitacollective.com/services/innovation",
+    canonical: "https://www.orbitacollective.com/services/innovation",
   },
 };
 
@@ -40,12 +40,12 @@ const schemaData = {
       provider: {
         "@type": "Organization",
         name: "Orbita Collective",
-        url: "https://orbitacollective.com",
+        url: "https://www.orbitacollective.com",
       },
       areaServed: ["London", "Milan"],
       description:
         "Innovation consultancy using design thinking to help organisations lead change from the inside-out. Grounded in real customer needs, not ideation for its own sake.",
-      url: "https://orbitacollective.com/services/innovation",
+      url: "https://www.orbitacollective.com/services/innovation",
     },
     {
       "@type": "FAQPage",
@@ -99,19 +99,19 @@ const schemaData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://orbitacollective.com",
+          item: "https://www.orbitacollective.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: "https://orbitacollective.com/#services",
+          item: "https://www.orbitacollective.com/#services",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Innovation",
-          item: "https://orbitacollective.com/services/innovation",
+          item: "https://www.orbitacollective.com/services/innovation",
         },
       ],
     },
@@ -321,6 +321,7 @@ export default function InnovationPage() {
         <ServiceCTA
           heading="Ready to move past the ideas wall?"
           subtext="Tell us the challenge you are trying to solve. We will design a sprint that produces validated concepts, not just conversation."
+          currentSlug="/services/innovation"
         />
       </main>
       <Footer />

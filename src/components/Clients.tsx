@@ -1,14 +1,15 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 
 const clients = [
-  { name: "UNICEF", src: "/clients/unicef.png" },
-  { name: "Fortnum & Mason", src: "/clients/fortnum-mason.png" },
-  { name: "Curzon", src: "/clients/curzon.png" },
-  { name: "4 Armed Health", src: "/clients/4armed.png" },
-  { name: "RELAX", src: "/clients/relax.png" },
+  { name: "UNICEF", src: "/clients/unicef.png", width: 1280, height: 309 },
+  { name: "Fortnum & Mason", src: "/clients/fortnum-mason.png", width: 1064, height: 598 },
+  { name: "Curzon", src: "/clients/curzon.png", width: 2500, height: 429 },
+  { name: "4 Armed Health", src: "/clients/4armed.png", width: 2000, height: 389 },
+  { name: "RELAX", src: "/clients/relax.png", width: 2500, height: 680 },
 ];
 
 const doubledClients = [...clients, ...clients, ...clients];
@@ -67,9 +68,15 @@ export default function Clients() {
               key={`${client.name}-${i}`}
               className="shrink-0 flex items-center justify-center h-14"
             >
-              <img
+              <Image
                 src={client.src}
-                alt={client.name}
+                /* Only the first pass is announced; the repeats are decorative. */
+                alt={i < clients.length ? `${client.name} logo` : ""}
+                aria-hidden={i >= clients.length}
+                width={client.width}
+                height={client.height}
+                sizes="200px"
+                loading="eager"
                 className="h-10 md:h-12 w-auto object-contain"
                 style={{
                   filter: "brightness(0)",

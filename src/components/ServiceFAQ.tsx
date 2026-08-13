@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 
 interface FAQ {
   q: string;
@@ -39,22 +38,25 @@ export default function ServiceFAQ({ faqs }: ServiceFAQProps) {
               }`}
             />
           </button>
-          <AnimatePresence initial={false}>
-            {openIndex === index && (
-              <motion.div
-                key="content"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-                className="overflow-hidden"
-              >
-                <p className="pb-5 text-dark/70 text-sm leading-relaxed max-w-2xl">
-                  {faq.a}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/*
+            Always rendered, never conditionally mounted: the answers must be in
+            the served HTML to match the FAQPage schema on each service page and
+            to be readable by crawlers that don't run JavaScript.
+          */}
+          <div
+            className={`grid transition-[grid-template-rows,opacity] duration-[250ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+              openIndex === index
+                ? "grid-rows-[1fr] opacity-100"
+                : "grid-rows-[0fr] opacity-0"
+            }`}
+            inert={openIndex !== index}
+          >
+            <div className="overflow-hidden">
+              <p className="pb-5 text-dark/70 text-sm leading-relaxed max-w-2xl">
+                {faq.a}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

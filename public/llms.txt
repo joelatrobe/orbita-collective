@@ -28,6 +28,7 @@ Orbita Collective was founded by Elisa Facondo and Joe La Trobe. Together they h
 
 - Elisa Facondo: Co-Founder, Customer Experience. Strategic thinker and communicator. Email: elisa@orbitacollective.com
 - Joe La Trobe: Co-Founder, Design & Innovation. Creative thinker and problem solver. Email: joe@orbitacollective.com
+- LinkedIn: https://www.linkedin.com/company/orbita-collective/
 - Locations: London, United Kingdom and Milan, Italy
 - Pricing: Approximately 30% more affordable than traditional consultancies
 - Typical time to first results: 4 weeks
@@ -39,16 +40,32 @@ Orbita Collective was founded by Elisa Facondo and Joe La Trobe. Together they h
 - Everyone owns a piece of the experience. Nobody owns the whole thing. We fix that
 - Everything we deliver, you can use from day one
 
+## Frequently asked questions
+
+**What does Orbita Collective actually do?** A service design, customer experience and innovation consultancy working with organisations in London and Milan. In practice: user research, service and experience design, CX strategy, and structured innovation work. Everything delivered is built to be used from day one.
+
+**How much does a project cost?** Roughly 30 per cent more affordable than a traditional consultancy, because the operating model was reinvented rather than the rate card. There is no fixed price list. Each project is scoped to the problem, with a clear figure and timeline agreed before work starts.
+
+**How quickly will we see results?** Most clients have something usable within four weeks, whether that is a research synthesis, a service blueprint, or a tested concept. Larger programmes run longer but are structured so value lands early.
+
+**Which industries do you work in?** Retail, financial services, healthcare, technology and the public sector. Clients include UNICEF, Fortnum and Mason, and Curzon.
+
+**Do you work remotely or on site?** Both. Based in London and Milan, travelling to clients across the UK and Europe for workshops and research sessions. The rest runs remotely, which keeps costs down.
+
+**How is this different from a big consultancy?** You work directly with the founders, not a pyramid of junior staff. No shelf-bound research report, no framework for the sake of a framework, and no premium for overheads you never asked for.
+
+**How do we get started?** Book a 30 minute conversation at https://www.orbitacollective.com. Orbita replies within one working day.
+
 ## Service pages
 
-- User Research & Customer Insights: https://orbitacollective.com/services/user-research
-- Service & Experience Design: https://orbitacollective.com/services/service-design
-- Customer Experience Strategy: https://orbitacollective.com/services/cx-strategy
-- Innovation Consultancy: https://orbitacollective.com/services/innovation
+- User Research & Customer Insights: https://www.orbitacollective.com/services/user-research
+- Service & Experience Design: https://www.orbitacollective.com/services/service-design
+- Customer Experience Strategy: https://www.orbitacollective.com/services/cx-strategy
+- Innovation Consultancy: https://www.orbitacollective.com/services/innovation
 
 ## Key pages
 
-- Homepage: https://orbitacollective.com
-- Privacy Policy: https://orbitacollective.com/privacy-policy
-- Cookie Policy: https://orbitacollective.com/cookies-policy
-- Sitemap: https://orbitacollective.com/sitemap.xml
+- Homepage: https://www.orbitacollective.com
+- Privacy Policy: https://www.orbitacollective.com/privacy-policy
+- Cookie Policy: https://www.orbitacollective.com/cookies-policy
+- Sitemap: https://www.orbitacollective.com/sitemap.xml

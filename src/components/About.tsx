@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 
 const founders = [
@@ -8,14 +9,16 @@ const founders = [
     role: "Customer Experience",
     trait: "Strategic thinker and passionate communicator",
     email: "elisa@orbitacollective.com",
-    photo: "/team/elisa.jpg?v=4",
+    photo: "/team/elisa.jpg",
+    alt: "Elisa Facondo, Co-Founder and Customer Experience lead at Orbita Collective",
   },
   {
     name: "Joe La Trobe",
     role: "Design & Innovation",
     trait: "Creative thinker and problem solver",
     email: "joe@orbitacollective.com",
-    photo: "/team/joe.jpg?v=4",
+    photo: "/team/joe.jpg",
+    alt: "Joe La Trobe, Co-Founder and Design & Innovation lead at Orbita Collective",
   },
 ];
 
@@ -71,9 +74,12 @@ export default function About() {
                 className="border border-dark/[0.04] border-l-4 border-l-blue-accent/40 rounded-3xl p-8"
               >
                 <div className="flex items-start gap-5">
-                  <img
+                  <Image
                     src={founder.photo}
-                    alt={founder.name}
+                    alt={founder.alt}
+                    width={400}
+                    height={400}
+                    sizes="56px"
                     className="w-14 h-14 rounded-2xl object-cover object-top shrink-0"
                   />
                   <div>

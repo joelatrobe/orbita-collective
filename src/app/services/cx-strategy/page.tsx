@@ -8,7 +8,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Customer Experience Strategy Consultancy | London & Milan | Orbita Collective",
+  title: "Customer Experience Strategy Consultancy | London & Milan",
   description:
     "CX strategy consultancy that turns customer insight into business results. We build strategies that stick. Grounded in real user needs, not assumptions. London & Milan.",
   keywords: [
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     title: "Customer Experience Strategy Consultancy | London & Milan | Orbita Collective",
     description:
       "CX strategy consultancy that turns customer insight into business results. We build strategies that stick. Grounded in real user needs, not assumptions.",
-    url: "https://orbitacollective.com/services/cx-strategy",
+    url: "https://www.orbitacollective.com/services/cx-strategy",
     siteName: "Orbita Collective",
     type: "website",
   },
   alternates: {
-    canonical: "https://orbitacollective.com/services/cx-strategy",
+    canonical: "https://www.orbitacollective.com/services/cx-strategy",
   },
 };
 
@@ -40,12 +40,12 @@ const schemaData = {
       provider: {
         "@type": "Organization",
         name: "Orbita Collective",
-        url: "https://orbitacollective.com",
+        url: "https://www.orbitacollective.com",
       },
       areaServed: ["London", "Milan"],
       description:
         "CX strategy consultancy that turns customer insight into business results. Strategies grounded in real user needs, built with the teams that implement them.",
-      url: "https://orbitacollective.com/services/cx-strategy",
+      url: "https://www.orbitacollective.com/services/cx-strategy",
     },
     {
       "@type": "FAQPage",
@@ -99,19 +99,19 @@ const schemaData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://orbitacollective.com",
+          item: "https://www.orbitacollective.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: "https://orbitacollective.com/#services",
+          item: "https://www.orbitacollective.com/#services",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "CX Strategy",
-          item: "https://orbitacollective.com/services/cx-strategy",
+          item: "https://www.orbitacollective.com/services/cx-strategy",
         },
       ],
     },
@@ -312,6 +312,7 @@ export default function CXStrategyPage() {
         <ServiceCTA
           heading="Your strategy should be built to be used."
           subtext="Tell us where your CX is underperforming and we will scope a project that produces a strategy your team can act on."
+          currentSlug="/services/cx-strategy"
         />
       </main>
       <Footer />

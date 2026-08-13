@@ -31,16 +31,16 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      // Next.js needs inline scripts; Google Fonts needs googleapis
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      // Next.js needs inline scripts; Google Analytics loads gtag.js from GTM
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
       // Inline styles + Google Fonts
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       // Font files
       "font-src 'self' https://fonts.gstatic.com",
-      // Images: self + data URIs
-      "img-src 'self' data: blob:",
-      // Fetch/XHR — self only
-      "connect-src 'self'",
+      // Images: self, data URIs, and GA's measurement pixel
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
+      // Fetch/XHR — self plus the GA collect endpoints
+      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com",
       // Allow Google Calendar booking to open
       "frame-src https://calendar.google.com",
       // Media

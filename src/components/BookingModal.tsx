@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { RESPONSE_PROMISE } from "@/lib/services";
 
 const BOOKING_URL =
   "https://calendar.google.com/appointments/schedules/AcZssZ0ZYv-ySdW9lGSDxU_HMjG3769IY4BkZZATufc_gZoG-mwe5B4QMZAFpz1FbMsHZo-6iTmiibev";
@@ -13,6 +16,23 @@ interface BookingModalProps {
 }
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+  const router = useRouter();
+
+  /**
+   * The scheduler is a Google Calendar page we can't instrument or redirect
+   * from, so we record the conversion here and send this tab to /thank-you
+   * while the booking flow opens in a new tab.
+   */
+  const handleBookingClick = () => {
+    trackEvent("generate_lead", { method: "booking_page" });
+    onClose();
+    router.push("/thank-you");
+  };
+
+  const handleEmailClick = () => {
+    trackEvent("generate_lead", { method: "email" });
+  };
+
   useEffect(() => {
     if (!isOpen) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -65,13 +85,15 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 Book a conversation
               </h3>
               <p className="text-muted text-sm mb-6">
-                Pick a time that works for you and we&apos;ll take it from there.
+                Pick a time that works for you and we&apos;ll take it from there.{" "}
+                {RESPONSE_PROMISE}
               </p>
 
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleBookingClick}
                 className="group bg-dark text-cream px-6 py-3.5 rounded-full text-sm font-medium cursor-pointer hover:bg-dark/90 transition-colors duration-200 inline-flex items-center gap-2 w-full justify-center"
               >
                 Open scheduling page
@@ -94,6 +116,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 Or email us at{" "}
                 <a
                   href="mailto:hello@orbitacollective.com"
+                  onClick={handleEmailClick}
                   className="text-coral hover:text-coral/80 transition-colors cursor-pointer"
                 >
                   hello@orbitacollective.com

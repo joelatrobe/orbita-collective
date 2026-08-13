@@ -1,8 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "motion/react";
+import Link from "next/link";
+import { motion, useInView } from "motion/react";
+import { servicePages, serviceCardLinks } from "@/lib/services";
 import {
+  ArrowRight,
   Search,
   Lightbulb,
   Users,
@@ -66,6 +69,7 @@ function ServiceCard({
   onToggle: () => void;
 }) {
   const Icon = service.icon;
+  const detailHref = serviceCardLinks[service.label];
 
   return (
     <motion.div
@@ -87,25 +91,38 @@ function ServiceCard({
         <ChevronDown size={14} className={`ml-auto text-dark/30 transition-transform duration-200 ${isExpanded ? "rotate-180 text-coral" : ""}`} />
       </div>
 
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-5 pb-5 pt-1">
-              <p className="text-muted text-sm leading-relaxed mb-4">{service.description}</p>
-              <a href="#contact" onClick={(e) => e.stopPropagation()} className="group inline-flex items-center gap-1.5 text-coral text-xs font-medium cursor-pointer hover:text-coral/80 transition-colors">
+      {/*
+        Always rendered, never conditionally mounted: these descriptions carry
+        the section's keyword content and must be in the served HTML.
+      */}
+      <div
+        className={`grid transition-[grid-template-rows,opacity] duration-[250ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+        inert={!isExpanded}
+      >
+        <div className="overflow-hidden">
+          <div className="px-5 pb-5 pt-1">
+            <p className="text-muted text-sm leading-relaxed mb-4">{service.description}</p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {detailHref && (
+                <Link
+                  href={detailHref}
+                  onClick={(e) => e.stopPropagation()}
+                  className="group inline-flex items-center gap-1.5 text-coral text-xs font-medium cursor-pointer hover:text-coral/80 transition-colors"
+                >
+                  Read more about {service.label.toLowerCase()}
+                  <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
+              )}
+              <a href="#contact" onClick={(e) => e.stopPropagation()} className="group inline-flex items-center gap-1.5 text-dark/45 text-xs font-medium cursor-pointer hover:text-dark transition-colors">
                 Discuss this with us
                 <ArrowUpRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -139,6 +156,38 @@ export default function Services() {
             and lets go of the baggage.
           </h2>
         </motion.div>
+
+        {/* Core service pages — primary internal links into the deep pages */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+          {servicePages.map((page, i) => (
+            <motion.div
+              key={page.slug}
+              initial={{ opacity: 0, transform: "translateY(20px)" }}
+              whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <Link
+                href={page.slug}
+                className="group hover-lift block h-full rounded-2xl border border-dark/[0.07] p-6 transition-colors duration-200 hover:border-coral/40 hover:bg-dark/[0.02]"
+              >
+                <h3 className="font-sans font-semibold text-base text-dark mb-2">
+                  {page.anchor}
+                </h3>
+                <p className="text-muted text-sm leading-relaxed mb-4">
+                  {page.summary}
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-coral text-xs font-medium">
+                  Learn more
+                  <ArrowRight
+                    size={12}
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                  />
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           {serviceCategories.map((cat, catIndex) => (

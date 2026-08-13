@@ -284,8 +284,11 @@ export default function Hero() {
           className="mx-auto mb-2"
         >
           <img
-            src="/logos/logo-dark.gif"
+            src="/logos/logo-dark-web.gif"
             alt="Orbita Collective"
+            width={2500}
+            height={1406}
+            fetchPriority="high"
             className="w-[300px] md:w-[390px] max-w-[80vw] mx-auto object-contain"
           />
         </motion.div>
