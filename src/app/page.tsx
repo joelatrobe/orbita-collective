@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import Clients from "@/components/Clients";
 import HowWeWork from "@/components/HowWeWork";
 import About from "@/components/About";
-import FAQ, { type FAQItem } from "@/components/FAQ";
+import { type FAQItem } from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -24,7 +24,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: "Which industries do you work in?",
-    a: "We have worked across retail, financial services, healthcare, technology and the public sector, with clients including UNICEF, Fortnum and Mason, and Curzon. Good design practice holds across industries. What changes is the context, the regulation, and the customer, and we adapt to those.",
+    a: "We have worked across retail, financial services, healthcare, technology and the public sector, with clients including UNICEF and Curzon. Good design practice holds across industries. What changes is the context, the regulation, and the customer, and we adapt to those.",
   },
   {
     q: "Do you work remotely or on site?",
@@ -66,10 +66,9 @@ export default function Home() {
         <Services />
         <HowWeWork />
         <About />
-        <FAQ items={faqs} />
         <Contact />
       </main>
-      <Footer />
+      <Footer faqs={faqs} />
     </>
   );
 }

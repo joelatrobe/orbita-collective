@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { servicePages, RESPONSE_PROMISE } from "@/lib/services";
+import FAQ, { type FAQItem } from "./FAQ";
 
 const siteLinks = [
   { label: "Services", href: "/#services" },
@@ -10,10 +11,13 @@ const siteLinks = [
   { label: "Contact", href: "/#contact" },
 ];
 
-export default function Footer() {
+/** `faqs` is passed on the homepage only — see the note in FAQ.tsx. */
+export default function Footer({ faqs }: { faqs?: FAQItem[] } = {}) {
   return (
     <footer className="py-12 px-6 bg-dark">
       <div className="max-w-7xl mx-auto">
+        {faqs && faqs.length > 0 && <FAQ items={faqs} />}
+
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] mb-10">
           <div>
             <img

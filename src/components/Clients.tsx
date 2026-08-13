@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 
 const clients = [
   { name: "UNICEF", src: "/clients/unicef.png", width: 1280, height: 309 },
-  { name: "Fortnum & Mason", src: "/clients/fortnum-mason.png", width: 1064, height: 598 },
   { name: "Curzon", src: "/clients/curzon.png", width: 2500, height: 429 },
   { name: "4 Armed Health", src: "/clients/4armed.png", width: 2000, height: 389 },
   { name: "RELAX", src: "/clients/relax.png", width: 2500, height: 680 },
