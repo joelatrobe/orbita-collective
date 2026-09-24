@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useBooking } from "./BookingProvider";
 import { relatedServices, RESPONSE_PROMISE } from "@/lib/services";
+import { guidesForService } from "@/lib/insights";
 
 interface ServiceCTAProps {
   heading: string;
@@ -16,6 +17,7 @@ interface ServiceCTAProps {
 export default function ServiceCTA({ heading, subtext, currentSlug }: ServiceCTAProps) {
   const { open: openBooking } = useBooking();
   const related = currentSlug ? relatedServices(currentSlug) : [];
+  const reading = currentSlug ? guidesForService(currentSlug) : [];
 
   return (
     <section className="bg-dark py-20 px-6">
@@ -85,6 +87,27 @@ export default function ServiceCTA({ heading, subtext, currentSlug }: ServiceCTA
               ))}
             </div>
           </motion.div>
+        )}
+
+        {reading.length > 0 && (
+          <div className="mt-12 pt-8 border-t border-cream/[0.08]">
+            <h2 className="text-cream/70 text-xs font-medium tracking-widest uppercase mb-4">
+              Further reading
+            </h2>
+            <ul className="space-y-2.5">
+              {reading.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={g.slug}
+                    className="inline-flex items-center gap-1.5 text-cream/60 text-sm hover:text-coral transition-colors"
+                  >
+                    {g.title}
+                    <ArrowRight size={12} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </section>

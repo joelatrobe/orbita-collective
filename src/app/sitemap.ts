@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { guides, sectorPages, SITE } from "@/lib/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -32,6 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${SITE}/insights`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...[...sectorPages, ...guides].map((p) => ({
+      url: SITE + p.slug,
+      lastModified: new Date(p.updated ?? p.published),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: "https://www.orbitacollective.com/faq",
       lastModified: new Date(),
