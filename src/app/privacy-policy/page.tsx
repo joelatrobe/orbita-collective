@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy",
+  alternates: { canonical: "https://www.orbitacollective.com/privacy-policy" },
 };
 
 export default function PrivacyPolicy() {

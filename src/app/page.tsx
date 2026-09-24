@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TheProblem from "@/components/TheProblem";
@@ -8,7 +9,9 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-
+export const metadata: Metadata = {
+  alternates: { canonical: "https://www.orbitacollective.com" },
+};
 
 export default function Home() {
   return (

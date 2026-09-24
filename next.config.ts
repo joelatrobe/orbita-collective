@@ -50,6 +50,16 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Old URLs that real visitors still land on (GA4, Aug–Sep 2026) and that
+  // Search Console reports as 404s. Permanent, so Google moves them over.
+  async redirects() {
+    return [
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/contact", destination: "/#contact", permanent: true },
+      { source: "/london-cx-2026", destination: "/services/cx-strategy", permanent: true },
+      { source: "/london-cx-strategy", destination: "/services/cx-strategy", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

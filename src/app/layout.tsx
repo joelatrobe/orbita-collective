@@ -90,9 +90,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://www.orbitacollective.com",
-  },
+  // No canonical here: anything set in the root layout is inherited by every
+  // page that doesn't set its own, which silently points that page at the
+  // homepage. Each indexable page declares its own canonical instead.
 };
 
 // Structured data — tells Google exactly who you are

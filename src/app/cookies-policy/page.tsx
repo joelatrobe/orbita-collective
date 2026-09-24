@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Cookies Policy",
+  alternates: { canonical: "https://www.orbitacollective.com/cookies-policy" },
 };
 
 export default function CookiesPolicy() {
