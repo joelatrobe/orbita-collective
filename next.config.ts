@@ -54,6 +54,7 @@ const nextConfig: NextConfig = {
   // Search Console reports as 404s. Permanent, so Google moves them over.
   async redirects() {
     return [
+      { source: "/home", destination: "/", permanent: true },
       { source: "/about", destination: "/#about", permanent: true },
       { source: "/contact", destination: "/#contact", permanent: true },
       { source: "/london-cx-2026", destination: "/services/cx-strategy", permanent: true },
