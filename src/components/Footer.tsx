@@ -8,7 +8,6 @@ const siteLinks = [
   { label: "How We Work", href: "/#how-we-work" },
   { label: "About", href: "/#about" },
   { label: "Insights", href: "/insights" },
-  { label: "Public sector", href: "/sectors/public-sector" },
   { label: "FAQs", href: "/faq" },
   { label: "Contact", href: "/#contact" },
 ];

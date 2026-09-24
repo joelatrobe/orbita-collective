@@ -74,7 +74,7 @@ button {
   }
 }
 
-/* Long-form guides (/insights, /sectors). Plain CSS rather than a typography
+/* Long-form guides (/insights). Plain CSS rather than a typography
    plugin so the article styles stay next to the brand tokens. */
 .article-body {
   color: rgb(26 26 26 / 0.8);

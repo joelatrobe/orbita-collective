@@ -1,5 +1,5 @@
 /**
- * Guides and sector pages that sit alongside the four service pages.
+ * Guides that sit alongside the four service pages.
  *
  * Each one exists to win a search from targets.json in the SEO hub and route
  * that reader to a discovery call. The sitemap, the /insights index, the
@@ -33,17 +33,6 @@ export const guides: InsightPage[] = [
     title: "How to improve customer experience in a large organisation",
     summary:
       "A practical, eight-step approach for improving customer experience when the journey crosses many teams, systems and budgets.",
-    service: "/services/service-design",
-    published: "2026-09-24",
-  },
-];
-
-export const sectorPages: InsightPage[] = [
-  {
-    slug: "/sectors/public-sector",
-    title: "Service design for the public sector",
-    summary:
-      "User research and service design for government and public sector teams, from discovery to live, in line with the Service Standard.",
     service: "/services/service-design",
     published: "2026-09-24",
   },

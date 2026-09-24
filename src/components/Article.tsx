@@ -119,7 +119,7 @@ export function ArticleLinks({ page, others }: { page: InsightPage; others: Insi
   );
 }
 
-/** Article + breadcrumb structured data for a guide or sector page. */
+/** Article + breadcrumb structured data for a guide. */
 export function articleSchema({
   page,
   description,

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
-import { guides, sectorPages, SITE } from "@/lib/insights";
+import { guides, SITE } from "@/lib/insights";
 import { servicePages } from "@/lib/services";
 
 const description =
@@ -33,7 +33,7 @@ const schema = {
       description,
       url: `${SITE}/insights`,
       publisher: { "@id": `${SITE}/#organization` },
-      hasPart: [...guides, ...sectorPages].map((g) => ({ "@id": `${SITE}${g.slug}#page` })),
+      hasPart: guides.map((g) => ({ "@id": `${SITE}${g.slug}#page` })),
     },
     {
       "@type": "BreadcrumbList",
@@ -95,13 +95,6 @@ export default function InsightsPage() {
             <div className="grid md:grid-cols-2 gap-5">
               {guides.map((g) => (
                 <Card key={g.slug} href={g.slug} kicker="Guide" title={g.title} text={g.summary} />
-              ))}
-            </div>
-
-            <h2 className="text-dark/50 text-xs font-medium tracking-widest uppercase mt-14 mb-6">Sectors</h2>
-            <div className="grid md:grid-cols-2 gap-5">
-              {sectorPages.map((s) => (
-                <Card key={s.slug} href={s.slug} kicker="Sector" title={s.title} text={s.summary} />
               ))}
             </div>
 
