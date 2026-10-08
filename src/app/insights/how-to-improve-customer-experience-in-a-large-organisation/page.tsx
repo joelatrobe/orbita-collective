@@ -66,6 +66,16 @@ export default function Page() {
               <p>Then build the habit into how the organisation runs, so it doesn&apos;t depend on one programme or one sponsor.</p>
             </ShortAnswer>
 
+            <h2>What does a good customer experience look like?</h2>
+            <p>
+              A good customer experience is one where customers can do what they came to do
+              easily, first time, and come away feeling the organisation was on their side. In
+              practice: it&apos;s clear what to do next, you don&apos;t have to repeat yourself,
+              problems get resolved without chasing, and it feels the same whichever channel you
+              use. Customers rarely notice a good experience. They notice effort.
+            </p>
+            <p>That&apos;s the target. The eight steps below are how to get there.</p>
+
             <h2>Step 1: Choose the journeys that matter</h2>
             <p>
               &quot;Improve the customer experience&quot; is too big to act on. Start by listing the

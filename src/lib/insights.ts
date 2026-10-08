@@ -35,6 +35,7 @@ export const guides: InsightPage[] = [
       "A practical, eight-step approach for improving customer experience when the journey crosses many teams, systems and budgets.",
     service: "/services/service-design",
     published: "2026-09-24",
+    updated: "2026-10-08",
   },
 ];
 

@@ -52,6 +52,14 @@ const schemaData = {
       mainEntity: [
         {
           "@type": "Question",
+          name: "What does a customer experience consultant do?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A customer experience consultant helps an organisation understand what its customers actually go through, decide what to fix first, and get the teams involved to change it. In practice that means research with customers and staff, mapping journeys end to end, setting a strategy and measures tied to business results, and running the workshops that get product, operations and service teams working on the same problems. A good one leaves your team able to carry on without them. At Orbita, that's Elisa and Joe doing the work themselves, not a junior team.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "What is customer experience strategy?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -153,6 +161,10 @@ const deliverables = [
 ];
 
 const faqs = [
+  {
+    q: "What does a customer experience consultant do?",
+    a: "A customer experience consultant helps an organisation understand what its customers actually go through, decide what to fix first, and get the teams involved to change it. In practice that means research with customers and staff, mapping journeys end to end, setting a strategy and measures tied to business results, and running the workshops that get product, operations and service teams working on the same problems. A good one leaves your team able to carry on without them. At Orbita, that's Elisa and Joe doing the work themselves, not a junior team.",
+  },
   {
     q: "What is customer experience strategy?",
     a: "Customer experience strategy is a plan for the experience you want to deliver. What it should feel like at every point of contact, how it supports your business goals, and how you will measure whether it is working. A good CX strategy is specific enough to guide real decisions, not just a set of aspirational principles.",

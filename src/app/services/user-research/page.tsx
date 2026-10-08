@@ -52,6 +52,22 @@ const schemaData = {
       mainEntity: [
         {
           "@type": "Question",
+          name: "What is user research?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "User research is finding out who your users are, what they're trying to do and where your product or service gets in their way, by studying real people rather than relying on assumptions. It uses methods such as interviews, observation, usability testing and surveys, and it produces evidence your team can make decisions on.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What are the two main types of user research?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Qualitative and quantitative. Qualitative research, such as interviews and observation, tells you why people do what they do. Quantitative research, such as surveys and analytics, tells you how many and how often. The strongest projects use both: qualitative to understand the problem, quantitative to size it.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "How long does a user research project take?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -154,6 +170,14 @@ const deliverables = [
 ];
 
 const faqs = [
+  {
+    q: "What is user research?",
+    a: "User research is finding out who your users are, what they're trying to do and where your product or service gets in their way, by studying real people rather than relying on assumptions. It uses methods such as interviews, observation, usability testing and surveys, and it produces evidence your team can make decisions on.",
+  },
+  {
+    q: "What are the two main types of user research?",
+    a: "Qualitative and quantitative. Qualitative research, such as interviews and observation, tells you why people do what they do. Quantitative research, such as surveys and analytics, tells you how many and how often. The strongest projects use both: qualitative to understand the problem, quantitative to size it.",
+  },
   {
     q: "How long does a user research project take?",
     a: "Most projects run between four and eight weeks, depending on the number of research participants, methods used, and how much synthesis and reporting is required. We scope each project individually. Contact us and we will give you a realistic timeline for your specific question.",

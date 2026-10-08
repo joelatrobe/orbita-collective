@@ -60,6 +60,14 @@ const schemaData = {
         },
         {
           "@type": "Question",
+          name: "Is service design the same as UX design?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No, though they overlap. UX design focuses on one product or interface, such as an app or a website, and how easy it is to use. Service design looks at the whole service a customer experiences across every channel, and at the people, processes and systems behind it. A UX designer might fix a confusing online form; a service designer asks why the form exists, what happens after it's sent and who deals with it. Most organisations need both.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "How long does a service design project take?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -157,6 +165,10 @@ const faqs = [
   {
     q: "What is service design?",
     a: "Service design is the practice of designing the full experience of a service. Not just the interface, but every touchpoint a customer encounters, and every backstage process that enables it. It considers the customer's perspective and the organisation's operations together, so that what you design is both good for people and possible to deliver.",
+  },
+  {
+    q: "Is service design the same as UX design?",
+    a: "No, though they overlap. UX design focuses on one product or interface, such as an app or a website, and how easy it is to use. Service design looks at the whole service a customer experiences across every channel, and at the people, processes and systems behind it. A UX designer might fix a confusing online form; a service designer asks why the form exists, what happens after it's sent and who deals with it. Most organisations need both.",
   },
   {
     q: "How long does a service design project take?",
