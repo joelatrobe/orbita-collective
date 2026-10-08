@@ -10,6 +10,10 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  // Unique to the homepage. A description shared with other pages reads as
+  // boilerplate, and Google swaps in its own snippet instead.
+  description:
+    "Service design, user research, customer experience (CX) strategy and product innovation consultancy. London & Milan. Senior experts, no big-consultancy premium.",
   alternates: { canonical: "https://www.orbitacollective.com" },
 };
 

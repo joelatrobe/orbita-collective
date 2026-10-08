@@ -2,6 +2,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy",
+  description:
+    "How Orbita Collective collects, uses and protects your personal data when you visit our website or work with us.",
   alternates: { canonical: "https://www.orbitacollective.com/privacy-policy" },
 };
 
