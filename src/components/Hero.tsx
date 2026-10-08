@@ -293,31 +293,36 @@ export default function Hero() {
           />
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, transform: "translateY(30px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-          className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-dark leading-[1.1] tracking-tight"
-        >
-          We reinvented consultancy
-          <br />
-          <span className="font-serif italic font-normal text-coral">
-            so you could reimagine
-          </span>
-          <br />
-          your products & services.
-        </motion.h1>
+        {/* The services line is the page's H1 and comes first in the HTML, so
+            search engines read what we do before the tagline. Flex `order`
+            keeps the tagline on top on screen; sizes and animation are unchanged. */}
+        <div className="flex flex-col">
+          <motion.h1
+            initial={{ opacity: 0, transform: "translateY(20px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
+            className="order-2 mt-8 w-full text-lg md:text-xl text-muted max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            User research, service design, product innovation &amp; CX strategy.
+            <br />
+            London &amp; Milan.
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, transform: "translateY(20px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ duration: 0.6, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
-          className="mt-8 text-lg md:text-xl text-muted max-w-2xl mx-auto font-light leading-relaxed"
-        >
-          User research, service design, product innovation &amp; CX strategy.
-          <br />
-          London &amp; Milan.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="order-1 font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-dark leading-[1.1] tracking-tight"
+          >
+            We reinvented consultancy
+            <br />
+            <span className="font-serif italic font-normal text-coral">
+              so you could reimagine
+            </span>
+            <br />
+            your products & services.
+          </motion.p>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, transform: "translateY(15px)" }}
